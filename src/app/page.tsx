@@ -1,18 +1,21 @@
-"use client"
+"use client";
 
+import type React from "react";
 
-
-import type React from "react"
-
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Github,
-  Linkedin,
   Mail,
   ExternalLink,
   Download,
@@ -30,64 +33,77 @@ import {
   Award,
   Users,
   Zap,
-} from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+  Twitter,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Portfolio() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("hero")
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "about", "projects", "skills", "resume", "contact"]
-      const scrollPosition = window.scrollY + 100
+      const sections = [
+        "hero",
+        "about",
+        "projects",
+        "skills",
+        "resume",
+        "contact",
+      ];
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
           }
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
 
   const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission logic here
-    console.log("Form submitted:", formData)
+    console.log("Form submitted:", formData);
     // Reset form
-    setFormData({ name: "", email: "", message: "" })
-  }
+    setFormData({ name: "", email: "", message: "" });
+  };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const navItems = [
     { id: "hero", label: "Home" },
@@ -96,7 +112,7 @@ export default function Portfolio() {
     { id: "skills", label: "Skills" },
     { id: "resume", label: "Resume" },
     { id: "contact", label: "Contact" },
-  ]
+  ];
 
   const projects = [
     {
@@ -159,7 +175,7 @@ export default function Portfolio() {
       image: "/placeholder.svg?height=250&width=400",
       featured: false,
     },
-  ]
+  ];
 
   const skills = [
     {
@@ -218,7 +234,7 @@ export default function Portfolio() {
         { name: "GitHub Actions", level: 80 },
       ],
     },
-  ]
+  ];
 
   const experiences = [
     {
@@ -260,7 +276,7 @@ export default function Portfolio() {
       ],
       technologies: ["JavaScript", "Python", "React", "Express", "MySQL"],
     },
-  ]
+  ];
 
   const education = [
     {
@@ -268,7 +284,8 @@ export default function Portfolio() {
       school: "Stanford University",
       period: "2017 - 2019",
       location: "Stanford, CA",
-      description: "Specialized in Distributed Systems and Cryptography. Thesis on blockchain scalability solutions.",
+      description:
+        "Specialized in Distributed Systems and Cryptography. Thesis on blockchain scalability solutions.",
       gpa: "3.9/4.0",
     },
     {
@@ -276,10 +293,11 @@ export default function Portfolio() {
       school: "University of California, Berkeley",
       period: "2013 - 2017",
       location: "Berkeley, CA",
-      description: "Graduated Magna Cum Laude. Focus on software engineering and computer networks.",
+      description:
+        "Graduated Magna Cum Laude. Focus on software engineering and computer networks.",
       gpa: "3.8/4.0",
     },
-  ]
+  ];
 
   const certifications = [
     {
@@ -300,7 +318,7 @@ export default function Portfolio() {
       date: "2023",
       credential: "CBSP-2023-112233",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-slate-900 text-white relative overflow-x-hidden">
@@ -325,7 +343,7 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Alex Chen
+              Dominion
             </div>
 
             {/* Desktop Navigation */}
@@ -335,7 +353,9 @@ export default function Portfolio() {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`text-sm font-medium transition-all duration-300 hover:text-indigo-400 relative ${
-                    activeSection === item.id ? "text-indigo-400" : "text-gray-300"
+                    activeSection === item.id
+                      ? "text-indigo-400"
+                      : "text-gray-300"
                   }`}
                 >
                   {item.label}
@@ -363,7 +383,9 @@ export default function Portfolio() {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full text-left py-3 px-4 text-sm font-medium transition-colors hover:text-indigo-400 hover:bg-slate-800/50 rounded-lg ${
-                    activeSection === item.id ? "text-indigo-400 bg-slate-800/30" : "text-gray-300"
+                    activeSection === item.id
+                      ? "text-indigo-400 bg-slate-800/30"
+                      : "text-gray-300"
                   }`}
                 >
                   {item.label}
@@ -375,7 +397,10 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 pt-25">
+      <section
+        id="hero"
+        className="min-h-screen flex items-center justify-center relative px-4 pt-25"
+      >
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
             <div className="inline-block p-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 mb-8">
@@ -391,15 +416,17 @@ export default function Portfolio() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent leading-tight">
-              Dominion  
+              Dominion
             </h1>
             <p className="text-xl sm:text-2xl lg:text-3xl text-indigo-400 mb-6 font-medium">
               Full-Stack Web3 Developer
             </p>
             <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Crafting the future of decentralized applications with cutting-edge blockchain technology, smart
-              contracts, and modern web development. Specializing in DeFi protocols, NFT marketplaces, and DAO
-              governance systems.
+              Passionate about democratizing finance and empowering communities
+              through blockchain technology. I specialize in creating intuitive
+              DeFi platforms, secure smart contracts, and engaging NFT
+              experiences that make Web3 accessible to everyone. Let's build the
+              decentralized future together.
             </p>
           </div>
 
@@ -422,13 +449,22 @@ export default function Portfolio() {
           </div>
 
           <div className="flex justify-center space-x-8">
-            <Link href="#" className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110">
+            <Link
+              href="https://github.com/Dominion116"
+              className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110"
+            >
               <Github size={28} />
             </Link>
-            <Link href="#" className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110">
-              <Linkedin size={28} />
+            <Link
+              href="https://x.com/Travishtech"
+              className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110"
+            >
+              <Twitter size={28} />
             </Link>
-            <Link href="#" className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110">
+            <Link
+              href="mailto:limbotech116@gmail.com"
+              className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110"
+            >
               <Mail size={28} />
             </Link>
           </div>
@@ -443,10 +479,13 @@ export default function Portfolio() {
       <section id="about" className="py-20 lg:py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">About Me</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              About Me
+            </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Passionate about building the decentralized future through innovative blockchain solutions
+              Passionate about building the decentralized future through
+              innovative blockchain solutions
             </p>
           </div>
 
@@ -454,39 +493,42 @@ export default function Portfolio() {
             <div className="order-2 lg:order-1">
               <div className="space-y-6">
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  I'm a passionate full-stack web3 developer with over 5 years of experience in blockchain technology
-                  and decentralized application development. My journey began with traditional web development, but I
-                  quickly became fascinated by the transformative potential of blockchain technology.
+                  My journey into Web3 started with a simple question: "What if we could rebuild the internet to truly belong to its users?" That curiosity led me from traditional web development into the fascinating world of blockchain technology, where I've spent the last 5+ years turning that vision into reality.
                 </p>
 
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  I specialize in building scalable DeFi protocols, innovative NFT marketplaces, and robust DAO
-                  governance systems. My expertise spans the entire development stack, from smart contract architecture
-                  to intuitive user interfaces, enabling me to deliver comprehensive web3 solutions.
+                  I thrive on solving complex problems at the intersection of technology and human needs. Whether I'm architecting a DeFi protocol that democratizes access to financial services, building an NFT marketplace that empowers creators, or designing DAO governance systems that give communities real power, my focus is always on creating solutions that matter.
                 </p>
 
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  When I'm not coding, you'll find me contributing to open-source projects, writing technical articles
-                  about blockchain development, or exploring the latest innovations in the web3 ecosystem.
+                  Beyond the code, I'm deeply involved in the Web3 community—contributing to open-source projects, mentoring developers transitioning into blockchain, and constantly exploring emerging technologies like zero-knowledge proofs and cross-chain interoperability. I also yap about Web3 projects on Kaito leaderboard.
                 </p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12">
                   <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">50+</div>
+                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
+                      5+
+                    </div>
                     <div className="text-gray-400 text-sm">Projects</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">5+</div>
-                    <div className="text-gray-400 text-sm">Years Exp</div>
+                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
+                      2+
+                    </div>
+                    <div className="text-gray-400 text-sm">Years Experience</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">$50M+</div>
+                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
+                      $10k+
+                    </div>
                     <div className="text-gray-400 text-sm">TVL Managed</div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">100K+</div>
+                  {/* <div className="text-center">
+                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
+                      100K+
+                    </div>
                     <div className="text-gray-400 text-sm">Users Served</div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -521,13 +563,19 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 lg:py-32 bg-slate-800/30 relative">
+      <section
+        id="projects"
+        className="py-20 lg:py-32 bg-slate-800/30 relative"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Featured Projects</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Featured Projects
+            </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Showcasing innovative web3 solutions that push the boundaries of blockchain technology
+              Showcasing innovative Web2 and Web3 solutions that push the boundaries of
+              blockchain technology and the internet.
             </p>
           </div>
 
@@ -550,7 +598,9 @@ export default function Portfolio() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 right-4">
-                      <Badge className="bg-indigo-600/90 text-white">Featured</Badge>
+                      <Badge className="bg-indigo-600/90 text-white">
+                        Featured
+                      </Badge>
                     </div>
                   </div>
 
@@ -628,12 +678,19 @@ export default function Portfolio() {
                   <CardContent>
                     <div className="flex flex-wrap gap-1 mb-4">
                       {project.tech.slice(0, 3).map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="secondary" className="bg-slate-700 text-gray-300 text-xs">
+                        <Badge
+                          key={techIndex}
+                          variant="secondary"
+                          className="bg-slate-700 text-gray-300 text-xs"
+                        >
                           {tech}
                         </Badge>
                       ))}
                       {project.tech.length > 3 && (
-                        <Badge variant="secondary" className="bg-slate-700 text-gray-300 text-xs">
+                        <Badge
+                          variant="secondary"
+                          className="bg-slate-700 text-gray-300 text-xs"
+                        >
                           +{project.tech.length - 3}
                         </Badge>
                       )}
@@ -666,10 +723,13 @@ export default function Portfolio() {
       <section id="skills" className="py-20 lg:py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Skills & Technologies</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Skills & Technologies
+            </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Comprehensive expertise across the full blockchain development stack
+              Comprehensive expertise across the full blockchain development
+              stack
             </p>
           </div>
 
@@ -683,15 +743,21 @@ export default function Portfolio() {
                   <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     {skillCategory.icon}
                   </div>
-                  <CardTitle className="text-white text-lg">{skillCategory.category}</CardTitle>
+                  <CardTitle className="text-white text-lg">
+                    {skillCategory.category}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {skillCategory.items.map((skill, skillIndex) => (
                       <div key={skillIndex} className="space-y-2">
                         <div className="flex justify-between items-center">
-                          <span className="text-gray-300 text-sm font-medium">{skill.name}</span>
-                          <span className="text-indigo-400 text-xs">{skill.level}%</span>
+                          <span className="text-gray-300 text-sm font-medium">
+                            {skill.name}
+                          </span>
+                          <span className="text-indigo-400 text-xs">
+                            {skill.level}%
+                          </span>
                         </div>
                         <div className="w-full bg-slate-700 rounded-full h-2">
                           <div
@@ -713,10 +779,13 @@ export default function Portfolio() {
       <section id="resume" className="py-20 lg:py-32 bg-slate-800/30 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Experience & Education</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Experience & Education
+            </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              A journey of continuous learning and professional growth in blockchain technology
+              A journey of continuous learning and professional growth in
+              blockchain technology
             </p>
           </div>
 
@@ -736,8 +805,12 @@ export default function Portfolio() {
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                         <div>
-                          <h4 className="text-xl font-semibold text-white mb-1">{exp.title}</h4>
-                          <div className="text-indigo-400 font-medium">{exp.company}</div>
+                          <h4 className="text-xl font-semibold text-white mb-1">
+                            {exp.title}
+                          </h4>
+                          <div className="text-indigo-400 font-medium">
+                            {exp.company}
+                          </div>
                         </div>
                         <div className="text-sm text-gray-400 mt-2 sm:mt-0 sm:text-right">
                           <div className="flex items-center gap-1 mb-1">
@@ -753,7 +826,10 @@ export default function Portfolio() {
 
                       <ul className="space-y-2 mb-4">
                         {exp.description.map((item, itemIndex) => (
-                          <li key={itemIndex} className="text-gray-300 text-sm flex items-start gap-2">
+                          <li
+                            key={itemIndex}
+                            className="text-gray-300 text-sm flex items-start gap-2"
+                          >
                             <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mt-2 flex-shrink-0" />
                             {item}
                           </li>
@@ -794,8 +870,12 @@ export default function Portfolio() {
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
                         <div>
-                          <h4 className="text-lg font-semibold text-white mb-1">{edu.degree}</h4>
-                          <div className="text-indigo-400 font-medium">{edu.school}</div>
+                          <h4 className="text-lg font-semibold text-white mb-1">
+                            {edu.degree}
+                          </h4>
+                          <div className="text-indigo-400 font-medium">
+                            {edu.school}
+                          </div>
                         </div>
                         <div className="text-sm text-gray-400 mt-2 sm:mt-0 sm:text-right">
                           <div className="flex items-center gap-1 mb-1">
@@ -808,27 +888,44 @@ export default function Portfolio() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-gray-300 text-sm mb-2">{edu.description}</p>
-                      <div className="text-indigo-400 text-sm font-medium">GPA: {edu.gpa}</div>
+                      <p className="text-gray-300 text-sm mb-2">
+                        {edu.description}
+                      </p>
+                      <div className="text-indigo-400 text-sm font-medium">
+                        GPA: {edu.gpa}
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
 
               {/* Certifications */}
-              <h4 className="text-xl font-semibold mb-6 text-white">Professional Certifications</h4>
+              <h4 className="text-xl font-semibold mb-6 text-white">
+                Professional Certifications
+              </h4>
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
-                  <Card key={index} className="bg-slate-800/30 border-slate-700">
+                  <Card
+                    key={index}
+                    className="bg-slate-800/30 border-slate-700"
+                  >
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h5 className="font-semibold text-white text-sm">{cert.name}</h5>
-                          <div className="text-indigo-400 text-xs">{cert.issuer}</div>
+                          <h5 className="font-semibold text-white text-sm">
+                            {cert.name}
+                          </h5>
+                          <div className="text-indigo-400 text-xs">
+                            {cert.issuer}
+                          </div>
                         </div>
                         <div className="text-right">
-                          <div className="text-gray-400 text-xs">{cert.date}</div>
-                          <div className="text-gray-500 text-xs">{cert.credential}</div>
+                          <div className="text-gray-400 text-xs">
+                            {cert.date}
+                          </div>
+                          <div className="text-gray-500 text-xs">
+                            {cert.credential}
+                          </div>
                         </div>
                       </div>
                     </CardContent>
@@ -851,10 +948,13 @@ export default function Portfolio() {
       <section id="contact" className="py-20 lg:py-32 relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Let's Build Together</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Let's Build Together
+            </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Ready to bring your web3 vision to life? Let's discuss how we can create something extraordinary together.
+              Ready to bring your web3 vision to life? Let's discuss how we can
+              create something extraordinary together.
             </p>
           </div>
 
@@ -862,13 +962,20 @@ export default function Portfolio() {
             {/* Contact Form */}
             <Card className="bg-slate-800/50 border-slate-700">
               <CardHeader>
-                <CardTitle className="text-2xl text-white">Send a Message</CardTitle>
-                <CardDescription className="text-gray-400">I'll get back to you within 24 hours</CardDescription>
+                <CardTitle className="text-2xl text-white">
+                  Send a Message
+                </CardTitle>
+                <CardDescription className="text-gray-400">
+                  I'll get back to you within 24 hours
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleFormSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Full Name
                     </label>
                     <Input
@@ -884,7 +991,10 @@ export default function Portfolio() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Email Address
                     </label>
                     <Input
@@ -900,7 +1010,10 @@ export default function Portfolio() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Message
                     </label>
                     <Textarea
@@ -929,11 +1042,14 @@ export default function Portfolio() {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-white">Get In Touch</h3>
+                <h3 className="text-2xl font-bold mb-6 text-white">
+                  Get In Touch
+                </h3>
                 <p className="text-gray-300 mb-8 leading-relaxed">
-                  Whether you're looking to build a DeFi protocol, launch an NFT marketplace, or create a DAO, I'm here
-                  to help bring your web3 vision to reality. Let's discuss your project and explore the possibilities
-                  together.
+                  Whether you're looking to build a DeFi protocol, launch an NFT
+                  marketplace, or create a DAO, I'm here to help bring your web3
+                  vision to reality. Let's discuss your project and explore the
+                  possibilities together.
                 </p>
               </div>
 
@@ -944,7 +1060,9 @@ export default function Portfolio() {
                       <Mail className="text-white" size={24} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-1">Email</h4>
+                      <h4 className="text-lg font-semibold text-white mb-1">
+                        Email
+                      </h4>
                       <p className="text-gray-400">alex.chen@example.com</p>
                     </div>
                   </CardContent>
@@ -956,7 +1074,9 @@ export default function Portfolio() {
                       <Phone className="text-white" size={24} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-1">Phone</h4>
+                      <h4 className="text-lg font-semibold text-white mb-1">
+                        Phone
+                      </h4>
                       <p className="text-gray-400">+1 (555) 123-4567</p>
                     </div>
                   </CardContent>
@@ -968,7 +1088,9 @@ export default function Portfolio() {
                       <MapPin className="text-white" size={24} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-1">Location</h4>
+                      <h4 className="text-lg font-semibold text-white mb-1">
+                        Location
+                      </h4>
                       <p className="text-gray-400">San Francisco, CA</p>
                     </div>
                   </CardContent>
@@ -976,22 +1098,24 @@ export default function Portfolio() {
               </div>
 
               <div className="pt-8">
-                <h4 className="text-lg font-semibold text-white mb-4">Follow Me</h4>
+                <h4 className="text-lg font-semibold text-white mb-4">
+                  Follow Me
+                </h4>
                 <div className="flex gap-4">
                   <Link
-                    href="#"
+                    href="https://github.com/Dominion116"
                     className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-500 transition-all duration-300 hover:scale-110"
                   >
                     <Github size={20} />
                   </Link>
                   <Link
-                    href="#"
+                    href="https://x.com/Travishtech"
                     className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-500 transition-all duration-300 hover:scale-110"
                   >
-                    <Linkedin size={20} />
+                    <Twitter size={20} />
                   </Link>
                   <Link
-                    href="#"
+                    href="mailto:limbotech@gmail.com"
                     className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-500 transition-all duration-300 hover:scale-110"
                   >
                     <Mail size={20} />
@@ -1008,12 +1132,14 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} Alex Chen. All rights reserved.
+              &copy; {new Date().getFullYear()} Dominion. All rights reserved.
             </div>
-            <div className="text-gray-400 text-sm">Built with React, Next.js & Tailwind CSS</div>
+            <div className="text-gray-400 text-sm">
+              Built with React, Next.js & Tailwind CSS
+            </div>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
