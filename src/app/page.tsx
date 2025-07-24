@@ -381,7 +381,7 @@ export default function Portfolio() {
             <div className="inline-block p-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 mb-8">
               <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-slate-900 flex items-center justify-center">
                 <Image
-                  src="/img/dominionli pfp.jpg"
+                  src="/images/dominion-profile.jpg"
                   alt="Dominion"
                   width={150}
                   height={150}
@@ -497,7 +497,7 @@ export default function Portfolio() {
                   <div className="aspect-square bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 rounded-2xl p-1">
                     <div className="w-full h-full bg-slate-900 rounded-2xl flex items-center justify-center">
                       <Image
-                        src="/img/dominionli pfp.jpg"
+                        src="/images/dominion-profile.jpg"
                         alt="Dominion"
                         width={400}
                         height={400}
