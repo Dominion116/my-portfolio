@@ -375,14 +375,14 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative px-4">
+      <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 pt-25">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
             <div className="inline-block p-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 mb-8">
               <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-slate-900 flex items-center justify-center">
                 <Image
-                  src="/placeholder.svg?height=150&width=150"
-                  alt="Alex Chen"
+                  src="/img/dominionli pfp.jpg"
+                  alt="Dominion"
                   width={150}
                   height={150}
                   className="rounded-full"
@@ -391,7 +391,7 @@ export default function Portfolio() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent leading-tight">
-              Alex Chen
+              Dominion  
             </h1>
             <p className="text-xl sm:text-2xl lg:text-3xl text-indigo-400 mb-6 font-medium">
               Full-Stack Web3 Developer
@@ -497,8 +497,8 @@ export default function Portfolio() {
                   <div className="aspect-square bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 rounded-2xl p-1">
                     <div className="w-full h-full bg-slate-900 rounded-2xl flex items-center justify-center">
                       <Image
-                        src="/placeholder.svg?height=400&width=400"
-                        alt="Alex Chen working"
+                        src="/img/dominionli pfp.jpg"
+                        alt="Dominion"
                         width={400}
                         height={400}
                         className="rounded-2xl"
