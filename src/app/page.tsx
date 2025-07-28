@@ -37,6 +37,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+// Import EmailJS
+import emailjs from "@emailjs/browser";
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,6 +48,8 @@ export default function Portfolio() {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,13 +92,47 @@ export default function Portfolio() {
     setIsMenuOpen(false);
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
-    // Reset form
+  const handleFormSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  try {
+    setIsSubmitting(true);
+    setSubmitStatus("");
+    
+    // Validate environment variables first
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      throw new Error('EmailJS configuration is missing');
+    }
+    
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_name: 'Dominion',
+    };
+
+    const response = await emailjs.send(
+      serviceId,
+      templateId,
+      templateParams,
+      publicKey
+    );
+
+    setSubmitStatus("success");
     setFormData({ name: "", email: "", message: "" });
-  };
+    
+  } catch (error) {
+    console.error('Error sending email:', error);
+    setSubmitStatus("error");
+  } finally {
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus(""), 5000);
+  }
+};
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -143,56 +181,6 @@ export default function Portfolio() {
       image: "/images/afrimobile.png",
       featured: true,
     },
-    // {
-    //   title: "Multi-Chain NFT Marketplace",
-    //   description:
-    //     "Cross-chain NFT marketplace supporting Ethereum, Polygon, and BSC. Features include lazy minting, royalty distribution, and advanced search capabilities.",
-    //   tech: ["Next.js", "Solidity", "IPFS", "Ethers.js", "MongoDB", "Redis"],
-    //   github: "#",
-    //   demo: "#",
-    //   image: "/placeholder.svg?height=250&width=400",
-    //   featured: false,
-    // },
-    // {
-    //   title: "DAO Governance Platform",
-    //   description:
-    //     "Decentralized governance platform with proposal creation, quadratic voting, and treasury management. Includes delegation and multi-sig wallet integration.",
-    //   tech: ["React", "Hardhat", "The Graph", "TypeScript", "Tailwind", "AWS"],
-    //   github: "#",
-    //   demo: "#",
-    //   image: "/placeholder.svg?height=250&width=400",
-    //   featured: false,
-    // },
-    // {
-    //   title: "Crypto Portfolio Tracker",
-    //   description:
-    //     "Real-time portfolio tracking with DeFi protocol integration, yield farming analytics, and tax reporting features.",
-    //   tech: ["Vue.js", "Python", "FastAPI", "PostgreSQL", "WebSocket"],
-    //   github: "#",
-    //   demo: "#",
-    //   image: "/placeholder.svg?height=250&width=400",
-    //   featured: false,
-    // },
-    // {
-    //   title: "Decentralized Identity System",
-    //   description:
-    //     "Self-sovereign identity solution using zero-knowledge proofs and verifiable credentials for privacy-preserving authentication.",
-    //   tech: ["Solidity", "React", "zk-SNARKs", "IPFS", "Node.js"],
-    //   github: "#",
-    //   demo: "#",
-    //   image: "/placeholder.svg?height=250&width=400",
-    //   featured: false,
-    // },
-    // {
-    //   title: "Blockchain Analytics Dashboard",
-    //   description:
-    //     "Comprehensive analytics platform for tracking on-chain metrics, whale movements, and DeFi protocol performance.",
-    //   tech: ["React", "D3.js", "Python", "GraphQL", "Redis", "Docker"],
-    //   github: "#",
-    //   demo: "#",
-    //   image: "/placeholder.svg?height=250&width=400",
-    //   featured: false,
-    // },
   ];
 
   const skills = [
@@ -266,7 +254,14 @@ export default function Portfolio() {
         "Mentored junior developers and established best practices for smart contract development",
         "Collaborated with cross-functional teams to deliver complex blockchain solutions",
       ],
-      technologies: ["Solidity", "React", "Next.js", "Node.js", "AWS", "PostgreSQL"],
+      technologies: [
+        "Solidity",
+        "React",
+        "Next.js",
+        "Node.js",
+        "AWS",
+        "PostgreSQL",
+      ],
     },
     {
       title: "Full Stack Developer",
@@ -280,41 +275,28 @@ export default function Portfolio() {
         "Collaborated with cross-functional teams including designers, product managers, and DevOps engineers",
         "Implemented comprehensive testing strategies and CI/CD pipelines",
       ],
-      technologies: ["React", "Next.js", "Node.js", "Express", "TypeScript", "MongoDB", "PostgreSQL", "AWS"],
+      technologies: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Express",
+        "TypeScript",
+        "MongoDB",
+        "PostgreSQL",
+        "AWS",
+      ],
     },
-    // {
-    //   title: "Full Stack Developer",
-    //   company: "TechStartup Inc",
-    //   period: "2019 - 2020",
-    //   location: "Austin, TX",
-    //   description: [
-    //     "Built scalable web applications serving 100K+ daily active users",
-    //     "Implemented RESTful APIs and microservices architecture",
-    //     "Collaborated with UX/UI designers to create intuitive user interfaces",
-    //     "Transitioned company's tech stack to modern blockchain technologies",
-    //   ],
-    //   technologies: ["JavaScript", "Python", "React", "Express", "MySQL"],
-    // },
   ];
 
   const education = [
-    // {
-    //   degree: "Master of Science in Computer Science",
-    //   school: "Stanford University",
-    //   period: "2017 - 2019",
-    //   location: "Stanford, CA",
-    //   description:
-    //     "Specialized in Distributed Systems and Cryptography. Thesis on blockchain scalability solutions.",
-    //   gpa: "3.9/4.0",
-    // },
     {
       degree: "Bachelor of Science in Computer Science",
       school: "Federal University of Technology, Akure",
       period: "2020 - 2025",
       location: "Akure, Ondo City",
       description:
-        "Graduated Magna Cum Laude. Focus on software engineering and computer networks.",
-      //gpa: "3.8/4.0",
+        "Comprehensive computer science program with strong emphasis on software engineering, data structures, algorithms, and modern web technologies. Specialized in full-stack development and emerging technologies including blockchain and distributed systems.",
+      gpa: "4.0",
     },
   ];
 
@@ -323,20 +305,7 @@ export default function Portfolio() {
       name: "Certified Ethereum Developer",
       issuer: "ConsenSys Academy",
       date: "2021",
-      credential: "CED-2021-001234",
     },
-    // {
-    //   name: "AWS Solutions Architect Professional",
-    //   issuer: "Amazon Web Services",
-    //   date: "2022",
-    //   credential: "AWS-SAP-2022-567890",
-    // },
-    // {
-    //   name: "Certified Blockchain Security Professional",
-    //   issuer: "Blockchain Council",
-    //   date: "2023",
-    //   credential: "CBSP-2023-112233",
-    // },
   ];
 
   return (
@@ -558,12 +527,6 @@ export default function Portfolio() {
                     </div>
                     <div className="text-gray-400 text-sm">TVL Managed</div>
                   </div>
-                  {/* <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
-                      100K+
-                    </div>
-                    <div className="text-gray-400 text-sm">Users Served</div>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -675,76 +638,6 @@ export default function Portfolio() {
                       >
                         <ExternalLink size={16} />
                         Live Demo
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-          </div>
-
-          {/* Other Projects */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects
-              .filter((project) => !project.featured)
-              .map((project, index) => (
-                <Card
-                  key={index}
-                  className="bg-slate-800/30 border-slate-700 hover:border-indigo-500/50 transition-all duration-300 group"
-                >
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      width={400}
-                      height={200}
-                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-white group-hover:text-indigo-400 transition-colors text-lg">
-                      {project.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-400 text-sm line-clamp-2">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent>
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {project.tech.slice(0, 3).map((tech, techIndex) => (
-                        <Badge
-                          key={techIndex}
-                          variant="secondary"
-                          className="bg-slate-700 text-gray-300 text-xs"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                      {project.tech.length > 3 && (
-                        <Badge
-                          variant="secondary"
-                          className="bg-slate-700 text-gray-300 text-xs"
-                        >
-                          +{project.tech.length - 3}
-                        </Badge>
-                      )}
-                    </div>
-
-                    <div className="flex gap-4">
-                      <Link
-                        href={project.github}
-                        className="flex items-center gap-1 text-gray-400 hover:text-indigo-400 transition-colors text-sm"
-                      >
-                        <Github size={14} />
-                        Code
-                      </Link>
-                      <Link
-                        href={project.demo}
-                        className="flex items-center gap-1 text-gray-400 hover:text-indigo-400 transition-colors text-sm"
-                      >
-                        <ExternalLink size={14} />
-                        Demo
                       </Link>
                     </div>
                   </CardContent>
@@ -958,9 +851,6 @@ export default function Portfolio() {
                           <div className="text-gray-400 text-xs">
                             {cert.date}
                           </div>
-                          <div className="text-gray-500 text-xs">
-                            {cert.credential}
-                          </div>
                         </div>
                       </div>
                     </CardContent>
@@ -1006,6 +896,21 @@ export default function Portfolio() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleFormSubmit} className="space-y-6">
+                  {/* Status Messages */}
+                  {submitStatus === "success" && (
+                    <div className="bg-green-600/20 border border-green-600/30 text-green-300 px-4 py-3 rounded-lg">
+                      Message sent successfully! I'll get back to you within 24
+                      hours.
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="bg-red-600/20 border border-red-600/30 text-red-300 px-4 py-3 rounded-lg">
+                      Sorry, there was an error sending your message. Please try
+                      again or email me directly at limbotech116@gmail.com
+                    </div>
+                  )}
+
                   <div>
                     <label
                       htmlFor="name"
@@ -1020,7 +925,8 @@ export default function Portfolio() {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500"
+                      disabled={isSubmitting}
+                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500 disabled:opacity-50"
                       placeholder="Your full name"
                     />
                   </div>
@@ -1039,7 +945,8 @@ export default function Portfolio() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500"
+                      disabled={isSubmitting}
+                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500 disabled:opacity-50"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -1057,18 +964,29 @@ export default function Portfolio() {
                       required
                       value={formData.message}
                       onChange={handleInputChange}
+                      disabled={isSubmitting}
                       rows={5}
-                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500 resize-none"
+                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500 resize-none disabled:opacity-50"
                       placeholder="Tell me about your project..."
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 font-medium rounded-lg transition-all duration-300 hover:scale-105"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 font-medium rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    <Send className="mr-2" size={20} />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2" size={20} />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>
@@ -1098,7 +1016,7 @@ export default function Portfolio() {
                       <h4 className="text-lg font-semibold text-white mb-1">
                         Email
                       </h4>
-                      <p className="text-gray-400">alex.chen@example.com</p>
+                      <p className="text-gray-400">limbotech116@gmail.com</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -1112,7 +1030,7 @@ export default function Portfolio() {
                       <h4 className="text-lg font-semibold text-white mb-1">
                         Phone
                       </h4>
-                      <p className="text-gray-400">+1 (555) 123-4567</p>
+                      <p className="text-gray-400">+2347036686324</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -1126,7 +1044,7 @@ export default function Portfolio() {
                       <h4 className="text-lg font-semibold text-white mb-1">
                         Location
                       </h4>
-                      <p className="text-gray-400">San Francisco, CA</p>
+                      <p className="text-gray-400">Onchain</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -1150,7 +1068,7 @@ export default function Portfolio() {
                     <Twitter size={20} />
                   </Link>
                   <Link
-                    href="mailto:limbotech@gmail.com"
+                    href="mailto:limbotech116@gmail.com"
                     className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-500 transition-all duration-300 hover:scale-110"
                   >
                     <Mail size={20} />
