@@ -93,46 +93,58 @@ export default function Portfolio() {
   };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  
-  try {
-    setIsSubmitting(true);
-    setSubmitStatus("");
-    
-    // Validate environment variables first
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    e.preventDefault();
 
-    if (!serviceId || !templateId || !publicKey) {
-      throw new Error('EmailJS configuration is missing');
+    try {
+      setIsSubmitting(true);
+      setSubmitStatus("");
+
+      // Validate environment variables first
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS configuration is missing");
+      }
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: "Dominion",
+      };
+
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(""), 5000);
     }
-    
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      message: formData.message,
-      to_name: 'Dominion',
-    };
+  };
 
-    const response = await emailjs.send(
-      serviceId,
-      templateId,
-      templateParams,
-      publicKey
-    );
+  const handleResumeDownload = () => {
+    // Create a temporary link element
+    const link = document.createElement("a");
+    link.href = "/resume/dominion-resume.pdf"; // Path to your PDF in public folder
+    link.download = "Dominion-Full-Stack-Web3-Developer-Resume.pdf"; // Downloaded filename
+    link.target = "_blank"; // Open in new tab as fallback
 
-    setSubmitStatus("success");
-    setFormData({ name: "", email: "", message: "" });
-    
-  } catch (error) {
-    console.error('Error sending email:', error);
-    setSubmitStatus("error");
-  } finally {
-    setIsSubmitting(false);
-    setTimeout(() => setSubmitStatus(""), 5000);
-  }
-};
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -861,7 +873,10 @@ export default function Portfolio() {
           </div>
 
           <div className="text-center mt-16">
-            <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105">
+            <Button
+              onClick={handleResumeDownload}
+              className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
+            >
               <Download className="mr-2" size={20} />
               Download Full Resume
             </Button>
