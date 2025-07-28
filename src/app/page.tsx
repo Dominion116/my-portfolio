@@ -115,7 +115,7 @@ export default function Portfolio() {
         to_name: "Dominion",
       };
 
-      const response = await emailjs.send(
+      await emailjs.send(
         serviceId,
         templateId,
         templateParams,
@@ -178,7 +178,7 @@ export default function Portfolio() {
     {
       title: "Afrimobile Technology",
       description:
-        "Blockchain-integrated smartphone platform, features native crypto wallet, decentralized app store, and smart contract-powered device management. Built for Africa's rapidly expanding mobile-first economy.",
+        "Blockchain-integrated smartphone platform, features native crypto wallet, decentralized app store, and smart contract-powered device management. Built for Africa&apos;s rapidly expanding mobile-first economy.",
       tech: [
         "Next.js",
         "React",
@@ -425,7 +425,7 @@ export default function Portfolio() {
               Passionate about democratizing finance and empowering communities
               through blockchain technology. I specialize in creating intuitive
               DeFi platforms, secure smart contracts, and engaging NFT
-              experiences that make Web3 accessible to everyone. Let's build the
+              experiences that make Web3 accessible to everyone. Let&apos;s build the
               decentralized future together.
             </p>
           </div>
@@ -493,16 +493,16 @@ export default function Portfolio() {
             <div className="order-2 lg:order-1">
               <div className="space-y-6">
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  My journey into Web3 started with a simple question: "What if
-                  we could rebuild the internet to truly belong to its users?"
+                  My journey into Web3 started with a simple question: &quot;What if
+                  we could rebuild the internet to truly belong to its users?&quot;
                   That curiosity led me from traditional web development into
-                  the fascinating world of blockchain technology, where I've
+                  the fascinating world of blockchain technology, where I&apos;ve
                   spent the last 5+ years turning that vision into reality.
                 </p>
 
                 <p className="text-lg text-gray-300 leading-relaxed">
                   I thrive on solving complex problems at the intersection of
-                  technology and human needs. Whether I'm architecting a DeFi
+                  technology and human needs. Whether I&apos;m architecting a DeFi
                   protocol that democratizes access to financial services,
                   building an NFT marketplace that empowers creators, or
                   designing DAO governance systems that give communities real
@@ -510,7 +510,7 @@ export default function Portfolio() {
                 </p>
 
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Beyond the code, I'm deeply involved in the Web3
+                  Beyond the code, I&apos;m deeply involved in the Web3
                   community—contributing to open-source projects, mentoring
                   developers transitioning into blockchain, and constantly
                   exploring emerging technologies like zero-knowledge proofs and
@@ -740,8 +740,7 @@ export default function Portfolio() {
                 {experiences.map((exp, index) => (
                   <Card
                     key={index}
-                    className="bg-slate-800/50 border-slate-700 hover:border-indigo-500/50 transition-all duration-300"
-                  >
+                    className="bg-slate-800/50 border-slate-700 hover:border-indigo-500/50 transition-all duration-300">
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                         <div>
@@ -889,11 +888,11 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Let's Build Together
+              Let&apos;s Build Together
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Ready to bring your web3 vision to life? Let's discuss how we can
+              Ready to bring your web3 vision to life? Let&apos;s discuss how we can
               create something extraordinary together.
             </p>
           </div>
@@ -906,7 +905,7 @@ export default function Portfolio() {
                   Send a Message
                 </CardTitle>
                 <CardDescription className="text-gray-400">
-                  I'll get back to you within 24 hours
+                  I&apos;ll get back to you within 24 hours
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -914,7 +913,7 @@ export default function Portfolio() {
                   {/* Status Messages */}
                   {submitStatus === "success" && (
                     <div className="bg-green-600/20 border border-green-600/30 text-green-300 px-4 py-3 rounded-lg">
-                      Message sent successfully! I'll get back to you within 24
+                      Message sent successfully! I&apos;ll get back to you within 24
                       hours.
                     </div>
                   )}
@@ -1014,9 +1013,9 @@ export default function Portfolio() {
                   Get In Touch
                 </h3>
                 <p className="text-gray-300 mb-8 leading-relaxed">
-                  Whether you're looking to build a DeFi protocol, launch an NFT
-                  marketplace, or create a DAO, I'm here to help bring your web3
-                  vision to reality. Let's discuss your project and explore the
+                  Whether you&apos;re looking to build a DeFi protocol, launch an NFT
+                  marketplace, or create a DAO, I&apos;m here to help bring your web3
+                  vision to reality. Let&apos;s discuss your project and explore the
                   possibilities together.
                 </p>
               </div>
