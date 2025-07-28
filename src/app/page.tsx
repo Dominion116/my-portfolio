@@ -116,13 +116,13 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "DeFi Yield Farming Protocol",
+      title: "My Portfolio Website",
       description:
         "A comprehensive DeFi platform featuring automated yield farming, liquidity mining, and governance tokens. Built with advanced smart contract security and gas optimization.",
-      tech: ["Solidity", "React", "Web3.js", "Node.js", "PostgreSQL", "Docker"],
+      tech: ["React", "Next.js", "Tailwind CSS", "HTML"],
       github: "#",
       demo: "#",
-      image: "/placeholder.svg?height=250&width=400",
+      image: "/images/myportfolio.png",
       featured: true,
     },
     {
@@ -590,7 +590,7 @@ export default function Portfolio() {
                 >
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
-                      src={project.image || "/placeholder.svg"}
+                      src={project.image || "/images/myportfolio.png"}
                       alt={project.title}
                       width={400}
                       height={250}
