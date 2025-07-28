@@ -118,63 +118,81 @@ export default function Portfolio() {
     {
       title: "My Portfolio Website",
       description:
-        "A comprehensive DeFi platform featuring automated yield farming, liquidity mining, and governance tokens. Built with advanced smart contract security and gas optimization.",
-      tech: ["React", "Next.js", "Tailwind CSS", "HTML"],
-      github: "#",
+        "Responsive portfolio platform featuring live smart contract integrations, DeFi project showcases, and modern Web3 user experience patterns.",
+      tech: ["React", "Next.js", "Tailwind CSS", "HTML", "Vercel"],
+      github: "https://github.com/Dominion116/my-portfolio",
       demo: "#",
       image: "/images/myportfolio.png",
       featured: true,
     },
     {
-      title: "Multi-Chain NFT Marketplace",
+      title: "Afrimobile Technology",
       description:
-        "Cross-chain NFT marketplace supporting Ethereum, Polygon, and BSC. Features include lazy minting, royalty distribution, and advanced search capabilities.",
-      tech: ["Next.js", "Solidity", "IPFS", "Ethers.js", "MongoDB", "Redis"],
-      github: "#",
-      demo: "#",
-      image: "/placeholder.svg?height=250&width=400",
+        "Blockchain-integrated smartphone platform, features native crypto wallet, decentralized app store, and smart contract-powered device management. Built for Africa's rapidly expanding mobile-first economy.",
+      tech: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Render",
+      ],
+      github: "https://github.com/BernardOnuh/Afrimo-Database",
+      demo: "https://www.afrimobil.com/",
+      image: "/images/afrimobile.png",
       featured: true,
     },
-    {
-      title: "DAO Governance Platform",
-      description:
-        "Decentralized governance platform with proposal creation, quadratic voting, and treasury management. Includes delegation and multi-sig wallet integration.",
-      tech: ["React", "Hardhat", "The Graph", "TypeScript", "Tailwind", "AWS"],
-      github: "#",
-      demo: "#",
-      image: "/placeholder.svg?height=250&width=400",
-      featured: true,
-    },
-    {
-      title: "Crypto Portfolio Tracker",
-      description:
-        "Real-time portfolio tracking with DeFi protocol integration, yield farming analytics, and tax reporting features.",
-      tech: ["Vue.js", "Python", "FastAPI", "PostgreSQL", "WebSocket"],
-      github: "#",
-      demo: "#",
-      image: "/placeholder.svg?height=250&width=400",
-      featured: false,
-    },
-    {
-      title: "Decentralized Identity System",
-      description:
-        "Self-sovereign identity solution using zero-knowledge proofs and verifiable credentials for privacy-preserving authentication.",
-      tech: ["Solidity", "React", "zk-SNARKs", "IPFS", "Node.js"],
-      github: "#",
-      demo: "#",
-      image: "/placeholder.svg?height=250&width=400",
-      featured: false,
-    },
-    {
-      title: "Blockchain Analytics Dashboard",
-      description:
-        "Comprehensive analytics platform for tracking on-chain metrics, whale movements, and DeFi protocol performance.",
-      tech: ["React", "D3.js", "Python", "GraphQL", "Redis", "Docker"],
-      github: "#",
-      demo: "#",
-      image: "/placeholder.svg?height=250&width=400",
-      featured: false,
-    },
+    // {
+    //   title: "Multi-Chain NFT Marketplace",
+    //   description:
+    //     "Cross-chain NFT marketplace supporting Ethereum, Polygon, and BSC. Features include lazy minting, royalty distribution, and advanced search capabilities.",
+    //   tech: ["Next.js", "Solidity", "IPFS", "Ethers.js", "MongoDB", "Redis"],
+    //   github: "#",
+    //   demo: "#",
+    //   image: "/placeholder.svg?height=250&width=400",
+    //   featured: false,
+    // },
+    // {
+    //   title: "DAO Governance Platform",
+    //   description:
+    //     "Decentralized governance platform with proposal creation, quadratic voting, and treasury management. Includes delegation and multi-sig wallet integration.",
+    //   tech: ["React", "Hardhat", "The Graph", "TypeScript", "Tailwind", "AWS"],
+    //   github: "#",
+    //   demo: "#",
+    //   image: "/placeholder.svg?height=250&width=400",
+    //   featured: false,
+    // },
+    // {
+    //   title: "Crypto Portfolio Tracker",
+    //   description:
+    //     "Real-time portfolio tracking with DeFi protocol integration, yield farming analytics, and tax reporting features.",
+    //   tech: ["Vue.js", "Python", "FastAPI", "PostgreSQL", "WebSocket"],
+    //   github: "#",
+    //   demo: "#",
+    //   image: "/placeholder.svg?height=250&width=400",
+    //   featured: false,
+    // },
+    // {
+    //   title: "Decentralized Identity System",
+    //   description:
+    //     "Self-sovereign identity solution using zero-knowledge proofs and verifiable credentials for privacy-preserving authentication.",
+    //   tech: ["Solidity", "React", "zk-SNARKs", "IPFS", "Node.js"],
+    //   github: "#",
+    //   demo: "#",
+    //   image: "/placeholder.svg?height=250&width=400",
+    //   featured: false,
+    // },
+    // {
+    //   title: "Blockchain Analytics Dashboard",
+    //   description:
+    //     "Comprehensive analytics platform for tracking on-chain metrics, whale movements, and DeFi protocol performance.",
+    //   tech: ["React", "D3.js", "Python", "GraphQL", "Redis", "Docker"],
+    //   github: "#",
+    //   demo: "#",
+    //   image: "/placeholder.svg?height=250&width=400",
+    //   featured: false,
+    // },
   ];
 
   const skills = [
@@ -238,64 +256,65 @@ export default function Portfolio() {
 
   const experiences = [
     {
-      title: "Senior Web3 Developer",
-      company: "BlockTech Solutions",
-      period: "2022 - Present",
-      location: "San Francisco, CA",
+      title: "Blockchain Developer",
+      company: "Web3 Nova",
+      period: "2024 - Present",
+      location: "Remote",
       description: [
-        "Lead development of DeFi protocols managing over $50M in total value locked",
-        "Architected and deployed 15+ smart contracts with zero security incidents",
+        "Development of DeFi protocols managing over $10k in transactions",
+        "Architected and deployed smart contracts with zero security incidents",
         "Mentored junior developers and established best practices for smart contract development",
         "Collaborated with cross-functional teams to deliver complex blockchain solutions",
       ],
-      technologies: ["Solidity", "React", "Node.js", "AWS", "PostgreSQL"],
-    },
-    {
-      title: "Blockchain Developer",
-      company: "CryptoInnovate Labs",
-      period: "2020 - 2022",
-      location: "New York, NY",
-      description: [
-        "Developed and deployed smart contracts for NFT marketplaces and DeFi protocols",
-        "Built responsive web applications using React and modern JavaScript frameworks",
-        "Implemented automated testing suites achieving 95% code coverage",
-        "Optimized gas usage resulting in 30% reduction in transaction costs",
-      ],
-      technologies: ["Ethereum", "Polygon", "React", "Web3.js", "MongoDB"],
+      technologies: ["Solidity", "React", "Next.js", "Node.js", "AWS", "PostgreSQL"],
     },
     {
       title: "Full Stack Developer",
-      company: "TechStartup Inc",
-      period: "2019 - 2020",
-      location: "Austin, TX",
+      company: "Metaminds Agency",
+      period: "2023 - 2024",
+      location: "Remote",
       description: [
-        "Built scalable web applications serving 100K+ daily active users",
-        "Implemented RESTful APIs and microservices architecture",
-        "Collaborated with UX/UI designers to create intuitive user interfaces",
-        "Transitioned company's tech stack to modern blockchain technologies",
+        "Led full-stack development for enterprise web applications, delivering scalable solutions for clients across e-commerce, SaaS, and digital marketing sectors",
+        "Architected and deployed robust backend APIs using Node.js and Express",
+        "Built responsive, mobile-first web applications using React and Next.js, implementing modern UI/UX designs",
+        "Collaborated with cross-functional teams including designers, product managers, and DevOps engineers",
+        "Implemented comprehensive testing strategies and CI/CD pipelines",
       ],
-      technologies: ["JavaScript", "Python", "React", "Express", "MySQL"],
+      technologies: ["React", "Next.js", "Node.js", "Express", "TypeScript", "MongoDB", "PostgreSQL", "AWS"],
     },
+    // {
+    //   title: "Full Stack Developer",
+    //   company: "TechStartup Inc",
+    //   period: "2019 - 2020",
+    //   location: "Austin, TX",
+    //   description: [
+    //     "Built scalable web applications serving 100K+ daily active users",
+    //     "Implemented RESTful APIs and microservices architecture",
+    //     "Collaborated with UX/UI designers to create intuitive user interfaces",
+    //     "Transitioned company's tech stack to modern blockchain technologies",
+    //   ],
+    //   technologies: ["JavaScript", "Python", "React", "Express", "MySQL"],
+    // },
   ];
 
   const education = [
+    // {
+    //   degree: "Master of Science in Computer Science",
+    //   school: "Stanford University",
+    //   period: "2017 - 2019",
+    //   location: "Stanford, CA",
+    //   description:
+    //     "Specialized in Distributed Systems and Cryptography. Thesis on blockchain scalability solutions.",
+    //   gpa: "3.9/4.0",
+    // },
     {
-      degree: "Master of Science in Computer Science",
-      school: "Stanford University",
-      period: "2017 - 2019",
-      location: "Stanford, CA",
-      description:
-        "Specialized in Distributed Systems and Cryptography. Thesis on blockchain scalability solutions.",
-      gpa: "3.9/4.0",
-    },
-    {
-      degree: "Bachelor of Science in Computer Engineering",
-      school: "University of California, Berkeley",
-      period: "2013 - 2017",
-      location: "Berkeley, CA",
+      degree: "Bachelor of Science in Computer Science",
+      school: "Federal University of Technology, Akure",
+      period: "2020 - 2025",
+      location: "Akure, Ondo City",
       description:
         "Graduated Magna Cum Laude. Focus on software engineering and computer networks.",
-      gpa: "3.8/4.0",
+      //gpa: "3.8/4.0",
     },
   ];
 
@@ -306,18 +325,18 @@ export default function Portfolio() {
       date: "2021",
       credential: "CED-2021-001234",
     },
-    {
-      name: "AWS Solutions Architect Professional",
-      issuer: "Amazon Web Services",
-      date: "2022",
-      credential: "AWS-SAP-2022-567890",
-    },
-    {
-      name: "Certified Blockchain Security Professional",
-      issuer: "Blockchain Council",
-      date: "2023",
-      credential: "CBSP-2023-112233",
-    },
+    // {
+    //   name: "AWS Solutions Architect Professional",
+    //   issuer: "Amazon Web Services",
+    //   date: "2022",
+    //   credential: "AWS-SAP-2022-567890",
+    // },
+    // {
+    //   name: "Certified Blockchain Security Professional",
+    //   issuer: "Blockchain Council",
+    //   date: "2023",
+    //   credential: "CBSP-2023-112233",
+    // },
   ];
 
   return (
@@ -493,15 +512,29 @@ export default function Portfolio() {
             <div className="order-2 lg:order-1">
               <div className="space-y-6">
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  My journey into Web3 started with a simple question: "What if we could rebuild the internet to truly belong to its users?" That curiosity led me from traditional web development into the fascinating world of blockchain technology, where I've spent the last 5+ years turning that vision into reality.
+                  My journey into Web3 started with a simple question: "What if
+                  we could rebuild the internet to truly belong to its users?"
+                  That curiosity led me from traditional web development into
+                  the fascinating world of blockchain technology, where I've
+                  spent the last 5+ years turning that vision into reality.
                 </p>
 
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  I thrive on solving complex problems at the intersection of technology and human needs. Whether I'm architecting a DeFi protocol that democratizes access to financial services, building an NFT marketplace that empowers creators, or designing DAO governance systems that give communities real power, my focus is always on creating solutions that matter.
+                  I thrive on solving complex problems at the intersection of
+                  technology and human needs. Whether I'm architecting a DeFi
+                  protocol that democratizes access to financial services,
+                  building an NFT marketplace that empowers creators, or
+                  designing DAO governance systems that give communities real
+                  power, my focus is always on creating solutions that matter.
                 </p>
 
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Beyond the code, I'm deeply involved in the Web3 community—contributing to open-source projects, mentoring developers transitioning into blockchain, and constantly exploring emerging technologies like zero-knowledge proofs and cross-chain interoperability. I also yap about Web3 projects on Kaito leaderboard.
+                  Beyond the code, I'm deeply involved in the Web3
+                  community—contributing to open-source projects, mentoring
+                  developers transitioning into blockchain, and constantly
+                  exploring emerging technologies like zero-knowledge proofs and
+                  cross-chain interoperability. I also yap about Web3 projects
+                  on Kaito leaderboard.
                 </p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12">
@@ -515,7 +548,9 @@ export default function Portfolio() {
                     <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
                       2+
                     </div>
-                    <div className="text-gray-400 text-sm">Years Experience</div>
+                    <div className="text-gray-400 text-sm">
+                      Years Experience
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
@@ -574,8 +609,8 @@ export default function Portfolio() {
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Showcasing innovative Web2 and Web3 solutions that push the boundaries of
-              blockchain technology and the internet.
+              Showcasing innovative Web2 and Web3 solutions that push the
+              boundaries of blockchain technology and the internet.
             </p>
           </div>
 
