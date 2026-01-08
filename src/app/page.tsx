@@ -456,8 +456,10 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-primary" />
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer" onClick={() => scrollToSection("about")}>
+          <span className="text-muted-foreground text-sm tracking-widest uppercase opacity-70 hover:text-primary transition-colors">
+            Scroll &darr;
+          </span>
         </div>
       </section>
 
