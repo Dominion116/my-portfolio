@@ -198,7 +198,7 @@ export default function Portfolio() {
   const skills = [
     {
       category: "Blockchain & Web3",
-      icon: <Code className="text-white" size={24} />,
+      icon: <Code className="text-foreground" size={24} />,
       items: [
         { name: "Solidity", level: 95 },
         { name: "Ethereum", level: 90 },
@@ -212,7 +212,7 @@ export default function Portfolio() {
     },
     {
       category: "Frontend Development",
-      icon: <Palette className="text-white" size={24} />,
+      icon: <Palette className="text-foreground" size={24} />,
       items: [
         { name: "React", level: 95 },
         { name: "Next.js", level: 90 },
@@ -226,7 +226,7 @@ export default function Portfolio() {
     },
     {
       category: "Backend & Database",
-      icon: <Database className="text-white" size={24} />,
+      icon: <Database className="text-foreground" size={24} />,
       items: [
         { name: "Node.js", level: 90 },
         { name: "Express", level: 85 },
@@ -240,7 +240,7 @@ export default function Portfolio() {
     },
     {
       category: "Tools & DevOps",
-      icon: <Globe className="text-white" size={24} />,
+      icon: <Globe className="text-foreground" size={24} />,
       items: [
         { name: "Git", level: 90 },
         { name: "Docker", level: 85 },
@@ -321,28 +321,14 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white relative overflow-x-hidden">
-      {/* Enhanced Background Pattern */}
-      <div className="fixed inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-              linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px)
-            `,
-            backgroundSize: "100% 100%, 100% 100%, 40px 40px, 40px 40px",
-          }}
-        />
-      </div>
+    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
+
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            <div className="text-xl font-bold text-foreground">
               Dominion
             </div>
 
@@ -352,15 +338,15 @@ export default function Portfolio() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-indigo-400 relative ${
+                  className={`text-sm font-medium transition-all duration-300 hover:text-primary relative ${
                     activeSection === item.id
-                      ? "text-indigo-400"
-                      : "text-gray-300"
+                      ? "text-primary"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {item.label}
                   {activeSection === item.id && (
-                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-indigo-400 rounded-full" />
+                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
                   )}
                 </button>
               ))}
@@ -368,7 +354,7 @@ export default function Portfolio() {
 
             {/* Mobile Navigation Button */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-slate-800 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -377,15 +363,15 @@ export default function Portfolio() {
 
           {/* Mobile Navigation Menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-slate-800 bg-slate-900/95 backdrop-blur-md">
+            <div className="md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-md">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left py-3 px-4 text-sm font-medium transition-colors hover:text-indigo-400 hover:bg-slate-800/50 rounded-lg ${
+                  className={`block w-full text-left py-3 px-4 text-sm font-medium transition-colors hover:text-primary hover:bg-muted/50 rounded-lg ${
                     activeSection === item.id
-                      ? "text-indigo-400 bg-slate-800/30"
-                      : "text-gray-300"
+                      ? "text-primary bg-muted/30"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {item.label}
@@ -403,8 +389,8 @@ export default function Portfolio() {
       >
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
-            <div className="inline-block p-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 mb-8">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-slate-900 flex items-center justify-center">
+            <div className="inline-block p-1 rounded-full bg-primary mb-8">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-background flex items-center justify-center">
                 <Image
                   src="/images/dominion-profile.jpg"
                   alt="Dominion"
@@ -415,13 +401,13 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight">
               Dominion
             </h1>
-            <p className="text-xl sm:text-2xl lg:text-3xl text-indigo-400 mb-6 font-medium">
+            <p className="text-xl sm:text-2xl lg:text-3xl text-primary mb-6 font-medium">
               Full-Stack Web3 Developer
             </p>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
               Passionate about democratizing finance and empowering communities
               through blockchain technology. I specialize in creating intuitive
               DeFi platforms, secure smart contracts, and engaging NFT
@@ -433,7 +419,7 @@ export default function Portfolio() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button
               onClick={() => scrollToSection("projects")}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
             >
               <Zap className="mr-2" size={20} />
               View My Work
@@ -441,7 +427,7 @@ export default function Portfolio() {
             <Button
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="border-2 border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
             >
               <Send className="mr-2" size={20} />
               Get In Touch
@@ -451,19 +437,19 @@ export default function Portfolio() {
           <div className="flex justify-center space-x-8">
             <Link
               href="https://github.com/Dominion116"
-              className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
             >
               <Github size={28} />
             </Link>
             <Link
               href="https://x.com/Travishtech"
-              className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
             >
               <Twitter size={28} />
             </Link>
             <Link
               href="mailto:limbotech116@gmail.com"
-              className="text-gray-400 hover:text-indigo-400 transition-all duration-300 hover:scale-110"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
             >
               <Mail size={28} />
             </Link>
@@ -471,7 +457,7 @@ export default function Portfolio() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-indigo-400" />
+          <ChevronDown size={32} className="text-primary" />
         </div>
       </section>
 
@@ -482,8 +468,8 @@ export default function Portfolio() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               About Me
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               Passionate about building the decentralized future through
               innovative blockchain solutions
             </p>
@@ -492,7 +478,7 @@ export default function Portfolio() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div className="space-y-6">
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   My journey into Web3 started with a simple question: &quot;What if
                   we could rebuild the internet to truly belong to its users?&quot;
                   That curiosity led me from traditional web development into
@@ -500,7 +486,7 @@ export default function Portfolio() {
                   spent the last 5+ years turning that vision into reality.
                 </p>
 
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   I thrive on solving complex problems at the intersection of
                   technology and human needs. Whether I&apos;m architecting a DeFi
                   protocol that democratizes access to financial services,
@@ -509,7 +495,7 @@ export default function Portfolio() {
                   power, my focus is always on creating solutions that matter.
                 </p>
 
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   Beyond the code, I&apos;m deeply involved in the Web3
                   community—contributing to open-source projects, mentoring
                   developers transitioning into blockchain, and constantly
@@ -520,24 +506,24 @@ export default function Portfolio() {
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12">
                   <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
+                    <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
                       5+
                     </div>
-                    <div className="text-gray-400 text-sm">Projects</div>
+                    <div className="text-muted-foreground text-sm">Projects</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
+                    <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
                       2+
                     </div>
-                    <div className="text-gray-400 text-sm">
+                    <div className="text-muted-foreground text-sm">
                       Years Experience
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-indigo-400 mb-2">
+                    <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
                       $10k+
                     </div>
-                    <div className="text-gray-400 text-sm">TVL Managed</div>
+                    <div className="text-muted-foreground text-sm">TVL Managed</div>
                   </div>
                 </div>
               </div>
@@ -546,8 +532,8 @@ export default function Portfolio() {
             <div className="order-1 lg:order-2">
               <div className="relative">
                 <div className="w-full max-w-md mx-auto">
-                  <div className="aspect-square bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 rounded-2xl p-1">
-                    <div className="w-full h-full bg-slate-900 rounded-2xl flex items-center justify-center">
+                  <div className="aspect-square bg-primary rounded-2xl p-1">
+                    <div className="w-full h-full bg-background rounded-2xl flex items-center justify-center">
                       <Image
                         src="/images/dominion-profile.jpg"
                         alt="Dominion"
@@ -560,11 +546,11 @@ export default function Portfolio() {
                 </div>
 
                 {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 bg-indigo-600 rounded-lg p-3 shadow-lg">
-                  <Code className="text-white" size={24} />
+                <div className="absolute -top-4 -right-4 bg-primary rounded-lg p-3 shadow-lg">
+                  <Code className="text-foreground" size={24} />
                 </div>
-                <div className="absolute -bottom-4 -left-4 bg-purple-600 rounded-lg p-3 shadow-lg">
-                  <Database className="text-white" size={24} />
+                <div className="absolute -bottom-4 -left-4 bg-primary rounded-lg p-3 shadow-lg">
+                  <Database className="text-foreground" size={24} />
                 </div>
               </div>
             </div>
@@ -575,15 +561,15 @@ export default function Portfolio() {
       {/* Projects Section */}
       <section
         id="projects"
-        className="py-20 lg:py-32 bg-slate-800/30 relative"
+        className="py-20 lg:py-32 bg-muted/20 relative"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Featured Projects
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               Showcasing innovative Web2 and Web3 solutions that push the
               boundaries of blockchain technology and the internet.
             </p>
@@ -596,7 +582,7 @@ export default function Portfolio() {
               .map((project, index) => (
                 <Card
                   key={index}
-                  className="bg-slate-800/50 border-slate-700 hover:border-indigo-500 transition-all duration-500 group hover:scale-105"
+                  className="bg-card border-border hover:border-primary transition-all duration-500 group hover:scale-105"
                 >
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
@@ -606,19 +592,19 @@ export default function Portfolio() {
                       height={250}
                       className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 right-4">
-                      <Badge className="bg-indigo-600/90 text-white">
+                      <Badge className="bg-primary text-primary-foreground">
                         Featured
                       </Badge>
                     </div>
                   </div>
 
                   <CardHeader className="pb-4">
-                    <CardTitle className="text-white group-hover:text-indigo-400 transition-colors text-lg sm:text-xl">
+                    <CardTitle className="text-foreground group-hover:text-primary transition-colors text-lg sm:text-xl">
                       {project.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                    <CardDescription className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                       {project.description}
                     </CardDescription>
                   </CardHeader>
@@ -629,7 +615,7 @@ export default function Portfolio() {
                         <Badge
                           key={techIndex}
                           variant="secondary"
-                          className="bg-indigo-600/20 text-indigo-300 border-indigo-600/30 text-xs"
+                          className="bg-secondary text-secondary-foreground border-border text-xs"
                         >
                           {tech}
                         </Badge>
@@ -639,14 +625,14 @@ export default function Portfolio() {
                     <div className="flex gap-4">
                       <Link
                         href={project.github}
-                        className="flex items-center gap-2 text-gray-400 hover:text-indigo-400 transition-colors text-sm font-medium"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
                       >
                         <Github size={16} />
                         Code
                       </Link>
                       <Link
                         href={project.demo}
-                        className="flex items-center gap-2 text-gray-400 hover:text-indigo-400 transition-colors text-sm font-medium"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
                       >
                         <ExternalLink size={16} />
                         Live Demo
@@ -666,8 +652,8 @@ export default function Portfolio() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Skills & Technologies
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               Comprehensive expertise across the full blockchain development
               stack
             </p>
@@ -677,13 +663,13 @@ export default function Portfolio() {
             {skills.map((skillCategory, index) => (
               <Card
                 key={index}
-                className="bg-slate-800/50 border-slate-700 hover:border-indigo-500 transition-all duration-300 group"
+                className="bg-card border-border hover:border-primary transition-all duration-300 group"
               >
                 <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     {skillCategory.icon}
                   </div>
-                  <CardTitle className="text-white text-lg">
+                  <CardTitle className="text-foreground text-lg">
                     {skillCategory.category}
                   </CardTitle>
                 </CardHeader>
@@ -692,16 +678,16 @@ export default function Portfolio() {
                     {skillCategory.items.map((skill, skillIndex) => (
                       <div key={skillIndex} className="space-y-2">
                         <div className="flex justify-between items-center">
-                          <span className="text-gray-300 text-sm font-medium">
+                          <span className="text-foreground text-sm font-medium">
                             {skill.name}
                           </span>
-                          <span className="text-indigo-400 text-xs">
+                          <span className="text-primary text-xs">
                             {skill.level}%
                           </span>
                         </div>
-                        <div className="w-full bg-slate-700 rounded-full h-2">
+                        <div className="w-full bg-muted rounded-full h-2">
                           <div
-                            className="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full transition-all duration-1000 ease-out"
+                            className="bg-primary h-2 rounded-full transition-all duration-1000 ease-out"
                             style={{ width: `${skill.level}%` }}
                           />
                         </div>
@@ -716,13 +702,13 @@ export default function Portfolio() {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-20 lg:py-32 bg-slate-800/30 relative">
+      <section id="resume" className="py-20 lg:py-32 bg-muted/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Experience & Education
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
+            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
               A journey of continuous learning and professional growth in
               blockchain technology
@@ -732,7 +718,7 @@ export default function Portfolio() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Experience */}
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-indigo-400 flex items-center gap-3">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-primary flex items-center gap-3">
                 <Users size={28} />
                 Professional Experience
               </h3>
@@ -740,18 +726,18 @@ export default function Portfolio() {
                 {experiences.map((exp, index) => (
                   <Card
                     key={index}
-                    className="bg-slate-800/50 border-slate-700 hover:border-indigo-500/50 transition-all duration-300">
+                    className="bg-card border-border hover:border-primary/50 transition-all duration-300">
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                         <div>
-                          <h4 className="text-xl font-semibold text-white mb-1">
+                          <h4 className="text-xl font-semibold text-foreground mb-1">
                             {exp.title}
                           </h4>
-                          <div className="text-indigo-400 font-medium">
+                          <div className="text-primary font-medium">
                             {exp.company}
                           </div>
                         </div>
-                        <div className="text-sm text-gray-400 mt-2 sm:mt-0 sm:text-right">
+                        <div className="text-sm text-muted-foreground mt-2 sm:mt-0 sm:text-right">
                           <div className="flex items-center gap-1 mb-1">
                             <Calendar size={14} />
                             {exp.period}
@@ -767,9 +753,9 @@ export default function Portfolio() {
                         {exp.description.map((item, itemIndex) => (
                           <li
                             key={itemIndex}
-                            className="text-gray-300 text-sm flex items-start gap-2"
+                            className="text-muted-foreground text-sm flex items-start gap-2"
                           >
-                            <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mt-2 flex-shrink-0" />
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
                             {item}
                           </li>
                         ))}
@@ -780,7 +766,7 @@ export default function Portfolio() {
                           <Badge
                             key={techIndex}
                             variant="secondary"
-                            className="bg-indigo-600/20 text-indigo-300 border-indigo-600/30 text-xs"
+                            className="bg-secondary text-secondary-foreground border-border text-xs"
                           >
                             {tech}
                           </Badge>
@@ -794,7 +780,7 @@ export default function Portfolio() {
 
             {/* Education & Certifications */}
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-indigo-400 flex items-center gap-3">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-primary flex items-center gap-3">
                 <Award size={28} />
                 Education & Certifications
               </h3>
@@ -804,19 +790,19 @@ export default function Portfolio() {
                 {education.map((edu, index) => (
                   <Card
                     key={index}
-                    className="bg-slate-800/50 border-slate-700 hover:border-indigo-500/50 transition-all duration-300"
+                    className="bg-card border-border hover:border-primary/50 transition-all duration-300"
                   >
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
                         <div>
-                          <h4 className="text-lg font-semibold text-white mb-1">
+                          <h4 className="text-lg font-semibold text-foreground mb-1">
                             {edu.degree}
                           </h4>
-                          <div className="text-indigo-400 font-medium">
+                          <div className="text-primary font-medium">
                             {edu.school}
                           </div>
                         </div>
-                        <div className="text-sm text-gray-400 mt-2 sm:mt-0 sm:text-right">
+                        <div className="text-sm text-muted-foreground mt-2 sm:mt-0 sm:text-right">
                           <div className="flex items-center gap-1 mb-1">
                             <Calendar size={14} />
                             {edu.period}
@@ -827,10 +813,10 @@ export default function Portfolio() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-gray-300 text-sm mb-2">
+                      <p className="text-muted-foreground text-sm mb-2">
                         {edu.description}
                       </p>
-                      <div className="text-indigo-400 text-sm font-medium">
+                      <div className="text-primary text-sm font-medium">
                         GPA: {edu.gpa}
                       </div>
                     </CardContent>
@@ -839,27 +825,27 @@ export default function Portfolio() {
               </div>
 
               {/* Certifications */}
-              <h4 className="text-xl font-semibold mb-6 text-white">
+              <h4 className="text-xl font-semibold mb-6 text-foreground">
                 Professional Certifications
               </h4>
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
                   <Card
                     key={index}
-                    className="bg-slate-800/30 border-slate-700"
+                    className="bg-card/50 border-border"
                   >
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h5 className="font-semibold text-white text-sm">
+                          <h5 className="font-semibold text-foreground text-sm">
                             {cert.name}
                           </h5>
-                          <div className="text-indigo-400 text-xs">
+                          <div className="text-primary text-xs">
                             {cert.issuer}
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="text-gray-400 text-xs">
+                          <div className="text-muted-foreground text-xs">
                             {cert.date}
                           </div>
                         </div>
@@ -874,7 +860,7 @@ export default function Portfolio() {
           <div className="text-center mt-16">
             <Button
               onClick={handleResumeDownload}
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
             >
               <Download className="mr-2" size={20} />
               Download Full Resume
@@ -890,7 +876,7 @@ export default function Portfolio() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Let&apos;s Build Together
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6"></div>
+            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
               Ready to bring your web3 vision to life? Let&apos;s discuss how we can
               create something extraordinary together.
@@ -899,12 +885,12 @@ export default function Portfolio() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="bg-slate-800/50 border-slate-700">
+            <Card className="bg-card border-border">
               <CardHeader>
-                <CardTitle className="text-2xl text-white">
+                <CardTitle className="text-2xl text-foreground">
                   Send a Message
                 </CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardDescription className="text-muted-foreground">
                   I&apos;ll get back to you within 24 hours
                 </CardDescription>
               </CardHeader>
@@ -928,7 +914,7 @@ export default function Portfolio() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-300 mb-2"
+                      className="block text-sm font-medium text-foreground mb-2"
                     >
                       Full Name
                     </label>
@@ -940,7 +926,7 @@ export default function Portfolio() {
                       value={formData.name}
                       onChange={handleInputChange}
                       disabled={isSubmitting}
-                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500 disabled:opacity-50"
+                      className="bg-input border-border text-foreground placeholder-muted-foreground focus:border-primary disabled:opacity-50"
                       placeholder="Your full name"
                     />
                   </div>
@@ -948,7 +934,7 @@ export default function Portfolio() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-300 mb-2"
+                      className="block text-sm font-medium text-foreground mb-2"
                     >
                       Email Address
                     </label>
@@ -960,7 +946,7 @@ export default function Portfolio() {
                       value={formData.email}
                       onChange={handleInputChange}
                       disabled={isSubmitting}
-                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500 disabled:opacity-50"
+                      className="bg-input border-border text-foreground placeholder-muted-foreground focus:border-primary disabled:opacity-50"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -968,7 +954,7 @@ export default function Portfolio() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-gray-300 mb-2"
+                      className="block text-sm font-medium text-foreground mb-2"
                     >
                       Message
                     </label>
@@ -980,7 +966,7 @@ export default function Portfolio() {
                       onChange={handleInputChange}
                       disabled={isSubmitting}
                       rows={5}
-                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400 focus:border-indigo-500 resize-none disabled:opacity-50"
+                      className="bg-input border-border text-foreground placeholder-muted-foreground focus:border-primary resize-none disabled:opacity-50"
                       placeholder="Tell me about your project..."
                     />
                   </div>
@@ -988,7 +974,7 @@ export default function Portfolio() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 font-medium rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 font-medium rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {isSubmitting ? (
                       <>
@@ -1009,10 +995,10 @@ export default function Portfolio() {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-white">
+                <h3 className="text-2xl font-bold mb-6 text-foreground">
                   Get In Touch
                 </h3>
-                <p className="text-gray-300 mb-8 leading-relaxed">
+                <p className="text-muted-foreground mb-8 leading-relaxed">
                   Whether you&apos;re looking to build a DeFi protocol, launch an NFT
                   marketplace, or create a DAO, I&apos;m here to help bring your web3
                   vision to reality. Let&apos;s discuss your project and explore the
@@ -1021,69 +1007,69 @@ export default function Portfolio() {
               </div>
 
               <div className="grid gap-6">
-                <Card className="bg-slate-800/30 border-slate-700 hover:border-indigo-500/50 transition-all duration-300">
+                <Card className="bg-card/50 border-border hover:border-primary/50 transition-all duration-300">
                   <CardContent className="p-6 flex items-center gap-4">
-                    <div className="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center">
-                      <Mail className="text-white" size={24} />
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <Mail className="text-foreground" size={24} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-1">
+                      <h4 className="text-lg font-semibold text-foreground mb-1">
                         Email
                       </h4>
-                      <p className="text-gray-400">limbotech116@gmail.com</p>
+                      <p className="text-muted-foreground">limbotech116@gmail.com</p>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-800/30 border-slate-700 hover:border-indigo-500/50 transition-all duration-300">
+                <Card className="bg-card/50 border-border hover:border-primary/50 transition-all duration-300">
                   <CardContent className="p-6 flex items-center gap-4">
-                    <div className="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center">
-                      <Phone className="text-white" size={24} />
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <Phone className="text-foreground" size={24} />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">
                         Phone
                       </h4>
-                      <p className="text-gray-400">+2347036686324</p>
+                      <p className="text-muted-foreground">+2347036686324</p>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-800/30 border-slate-700 hover:border-indigo-500/50 transition-all duration-300">
+                <Card className="bg-card/50 border-border hover:border-primary/50 transition-all duration-300">
                   <CardContent className="p-6 flex items-center gap-4">
-                    <div className="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center">
-                      <MapPin className="text-white" size={24} />
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                      <MapPin className="text-foreground" size={24} />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">
                         Location
                       </h4>
-                      <p className="text-gray-400">Onchain</p>
+                      <p className="text-muted-foreground">Onchain</p>
                     </div>
                   </CardContent>
                 </Card>
               </div>
 
               <div className="pt-8">
-                <h4 className="text-lg font-semibold text-white mb-4">
+                <h4 className="text-lg font-semibold text-foreground mb-4">
                   Follow Me
                 </h4>
                 <div className="flex gap-4">
                   <Link
                     href="https://github.com/Dominion116"
-                    className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-500 transition-all duration-300 hover:scale-110"
+                    className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:scale-110"
                   >
                     <Github size={20} />
                   </Link>
                   <Link
                     href="https://x.com/Travishtech"
-                    className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-500 transition-all duration-300 hover:scale-110"
+                    className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:scale-110"
                   >
                     <Twitter size={20} />
                   </Link>
                   <Link
                     href="mailto:limbotech116@gmail.com"
-                    className="w-12 h-12 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-500 transition-all duration-300 hover:scale-110"
+                    className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:scale-110"
                   >
                     <Mail size={20} />
                   </Link>
@@ -1095,13 +1081,13 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-slate-800 bg-slate-900/50">
+      <footer className="py-8 border-t border-border bg-background/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="text-gray-400 text-sm">
+            <div className="text-muted-foreground text-sm">
               &copy; {new Date().getFullYear()} Dominion. All rights reserved.
             </div>
-            <div className="text-gray-400 text-sm">
+            <div className="text-muted-foreground text-sm">
               Built with React, Next.js & Tailwind CSS
             </div>
           </div>
