@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Architects_Daughter } from "next/font/google"; // Import Architects Daughter
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const architectsDaughter = Architects_Daughter({
   variable: "--font-notebook",
@@ -19,11 +20,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${architectsDaughter.variable} antialiased`} // Apply font-sans class
       >
-        {children}
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+        </ThemeProvider>
       </body>
     </html>
   );
