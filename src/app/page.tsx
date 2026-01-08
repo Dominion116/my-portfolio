@@ -385,7 +385,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section
         id="hero"
-        className="min-h-screen flex items-center justify-center relative px-4 pt-25"
+        className="min-h-screen flex items-center justify-center relative px-4 pt-32"
       >
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
@@ -582,7 +582,7 @@ export default function Portfolio() {
               .map((project, index) => (
                 <Card
                   key={index}
-                  className="bg-card border-border hover:border-primary transition-all duration-500 group hover:scale-105"
+                  className="bg-card border-border hover:border-primary shadow-sm transition-all duration-500 group hover:scale-105"
                 >
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
@@ -663,7 +663,7 @@ export default function Portfolio() {
             {skills.map((skillCategory, index) => (
               <Card
                 key={index}
-                className="bg-card border-border hover:border-primary transition-all duration-300 group"
+                className="bg-card border-border hover:border-primary shadow-sm transition-all duration-300 group"
               >
                 <CardHeader className="text-center pb-4">
                   <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -726,7 +726,7 @@ export default function Portfolio() {
                 {experiences.map((exp, index) => (
                   <Card
                     key={index}
-                    className="bg-card border-border hover:border-primary/50 transition-all duration-300">
+                    className="bg-card border-border hover:border-primary/50 shadow-sm transition-all duration-300">
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                         <div>
@@ -790,7 +790,7 @@ export default function Portfolio() {
                 {education.map((edu, index) => (
                   <Card
                     key={index}
-                    className="bg-card border-border hover:border-primary/50 transition-all duration-300"
+                    className="bg-card border-border hover:border-primary/50 shadow-sm transition-all duration-300"
                   >
                     <CardContent className="p-6">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
@@ -832,7 +832,7 @@ export default function Portfolio() {
                 {certifications.map((cert, index) => (
                   <Card
                     key={index}
-                    className="bg-card/50 border-border"
+                    className="bg-card/50 border-border shadow-sm"
                   >
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
@@ -885,7 +885,7 @@ export default function Portfolio() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="bg-card border-border">
+            <Card className="bg-card border-border shadow-sm">
               <CardHeader>
                 <CardTitle className="text-2xl text-foreground">
                   Send a Message
@@ -1007,7 +1007,7 @@ export default function Portfolio() {
               </div>
 
               <div className="grid gap-6">
-                <Card className="bg-card/50 border-border hover:border-primary/50 transition-all duration-300">
+                <Card className="bg-card/50 border-border hover:border-primary/50 shadow-sm transition-all duration-300">
                   <CardContent className="p-6 flex items-center gap-4">
                     <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
                       <Mail className="text-foreground" size={24} />
@@ -1021,7 +1021,7 @@ export default function Portfolio() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-card/50 border-border hover:border-primary/50 transition-all duration-300">
+                <Card className="bg-card/50 border-border hover:border-primary/50 shadow-sm transition-all duration-300">
                   <CardContent className="p-6 flex items-center gap-4">
                     <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
                       <Phone className="text-foreground" size={24} />
@@ -1035,7 +1035,7 @@ export default function Portfolio() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-card/50 border-border hover:border-primary/50 transition-all duration-300">
+                <Card className="bg-card/50 border-border hover:border-primary/50 shadow-sm transition-all duration-300">
                   <CardContent className="p-6 flex items-center gap-4">
                     <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
                       <MapPin className="text-foreground" size={24} />
