@@ -175,6 +175,24 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "SolWork Landing Page",
+      description:
+        "A high-performance, aesthetically driven landing page for a decentralized freelance marketplace on Solana. Features premium UI/UX design with glassmorphism effects, dynamic animations, and seamless Solana wallet integration to showcase a modern, trustless work ecosystem.",
+      tech: [
+        "Next.js",
+        "React",
+        "Solana SDK",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Radix UI",
+        "Lucide React",
+      ],
+      github: "https://github.com/Dominion116/solwork",
+      demo: "https://solwork.vercel.app/",
+      image: "/images/solwork.png",
+      featured: true,
+    },
+    {
       title: "My Portfolio Website",
       description:
         "Responsive portfolio platform featuring live smart contract integrations, DeFi project showcases, and modern Web3 user experience patterns.",
