@@ -2,6 +2,7 @@
 
 import type React from "react";
 
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -435,9 +436,12 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section
+      <motion.section
         id="hero"
         className="min-h-screen flex items-center justify-center relative px-4 pt-32"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
@@ -489,10 +493,17 @@ export default function Portfolio() {
 
         </div>
 
-      </section>
+      </motion.section>
 
       {/* About Section */}
-      <section id="about" className="py-20 lg:py-32 relative">
+      <motion.section
+        id="about"
+        className="py-20 lg:py-32 relative"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
@@ -586,12 +597,16 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Projects Section */}
-      <section
+      <motion.section
         id="projects"
         className="py-20 lg:py-32 bg-muted/20 relative"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -605,78 +620,89 @@ export default function Portfolio() {
             </p>
           </div>
 
-          {/* Featured Projects */}
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {projects
               .filter((project) => project.featured)
               .map((project, index) => (
-                <Card
+                <motion.div
                   key={index}
-                  className="bg-card border-border hover:border-primary shadow-sm transition-all duration-500 group hover:scale-105"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <Image
-                      src={project.image || "/images/myportfolio.png"}
-                      alt={project.title}
-                      width={400}
-                      height={250}
-                      className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-primary text-primary-foreground">
-                        Featured
-                      </Badge>
-                    </div>
-                  </div>
-
-                  <CardHeader className="pb-4">
-                    <CardTitle className="text-foreground group-hover:text-primary transition-colors text-lg sm:text-xl">
-                      {project.title}
-                    </CardTitle>
-                    <CardDescription className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech, techIndex) => (
-                        <Badge
-                          key={techIndex}
-                          variant="secondary"
-                          className="bg-secondary text-secondary-foreground border-border text-xs"
-                        >
-                          {tech}
+                  <Card className="bg-card border-border hover:border-primary shadow-sm transition-all duration-500 group hover:scale-105">
+                    <div className="relative overflow-hidden rounded-t-lg">
+                      <Image
+                        src={project.image || "/images/myportfolio.png"}
+                        alt={project.title}
+                        width={400}
+                        height={250}
+                        className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute top-4 right-4">
+                        <Badge className="bg-primary text-primary-foreground">
+                          Featured
                         </Badge>
-                      ))}
+                      </div>
                     </div>
 
-                    <div className="flex gap-4">
-                      <Link
-                        href={project.github}
-                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
-                      >
-                        <Github size={16} />
-                        Code
-                      </Link>
-                      <Link
-                        href={project.demo}
-                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
-                      >
-                        <ExternalLink size={16} />
-                        Live Demo
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
+                    <CardHeader className="pb-4">
+                      <CardTitle className="text-foreground group-hover:text-primary transition-colors text-lg sm:text-xl">
+                        {project.title}
+                      </CardTitle>
+                      <CardDescription className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                        {project.description}
+                      </CardDescription>
+                    </CardHeader>
+
+                    <CardContent>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tech.map((tech, techIndex) => (
+                          <Badge
+                            key={techIndex}
+                            variant="secondary"
+                            className="bg-secondary text-secondary-foreground border-border text-xs"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+
+                      <div className="flex gap-4">
+                        <Link
+                          href={project.github}
+                          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
+                        >
+                          <Github size={16} />
+                          Code
+                        </Link>
+                        <Link
+                          href={project.demo}
+                          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
+                        >
+                          <ExternalLink size={16} />
+                          Live Demo
+                        </Link>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 lg:py-32 relative">
+      <motion.section
+        id="skills"
+        className="py-20 lg:py-32 relative"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
@@ -691,48 +717,60 @@ export default function Portfolio() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skillCategory, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="bg-card border-border hover:border-primary shadow-sm transition-all duration-300 group"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {skillCategory.icon}
-                  </div>
-                  <CardTitle className="text-foreground text-lg">
-                    {skillCategory.category}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {skillCategory.items.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <span className="text-foreground text-sm font-medium">
-                            {skill.name}
-                          </span>
-                          <span className="text-primary text-xs">
-                            {skill.level}%
-                          </span>
+                <Card className="bg-card border-border hover:border-primary shadow-sm transition-all duration-300 group">
+                  <CardHeader className="text-center pb-4">
+                    <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {skillCategory.icon}
+                    </div>
+                    <CardTitle className="text-foreground text-lg">
+                      {skillCategory.category}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {skillCategory.items.map((skill, skillIndex) => (
+                        <div key={skillIndex} className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <span className="text-foreground text-sm font-medium">
+                              {skill.name}
+                            </span>
+                            <span className="text-primary text-xs">
+                              {skill.level}%
+                            </span>
+                          </div>
+                          <div className="w-full bg-muted rounded-full h-2">
+                            <div
+                              className="bg-primary h-2 rounded-full transition-all duration-1000 ease-out"
+                              style={{ width: `${skill.level}%` }}
+                            />
+                          </div>
                         </div>
-                        <div className="w-full bg-muted rounded-full h-2">
-                          <div
-                            className="bg-primary h-2 rounded-full transition-all duration-1000 ease-out"
-                            style={{ width: `${skill.level}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-20 lg:py-32 bg-muted/20 relative">
+      <motion.section
+        id="resume"
+        className="py-20 lg:py-32 bg-muted/20 relative"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
@@ -754,56 +792,62 @@ export default function Portfolio() {
               </h3>
               <div className="space-y-8">
                 {experiences.map((exp, index) => (
-                  <Card
+                  <motion.div
                     key={index}
-                    className="bg-card border-border hover:border-primary/50 shadow-sm transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                        <div>
-                          <h4 className="text-xl font-semibold text-foreground mb-1">
-                            {exp.title}
-                          </h4>
-                          <div className="text-primary font-medium">
-                            {exp.company}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="bg-card border-border hover:border-primary/50 shadow-sm transition-all duration-300">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                          <div>
+                            <h4 className="text-xl font-semibold text-foreground mb-1">
+                              {exp.title}
+                            </h4>
+                            <div className="text-primary font-medium">
+                              {exp.company}
+                            </div>
+                          </div>
+                          <div className="text-sm text-muted-foreground mt-2 sm:mt-0 sm:text-right">
+                            <div className="flex items-center gap-1 mb-1">
+                              <Calendar size={14} />
+                              {exp.period}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MapPin size={14} />
+                              {exp.location}
+                            </div>
                           </div>
                         </div>
-                        <div className="text-sm text-muted-foreground mt-2 sm:mt-0 sm:text-right">
-                          <div className="flex items-center gap-1 mb-1">
-                            <Calendar size={14} />
-                            {exp.period}
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <MapPin size={14} />
-                            {exp.location}
-                          </div>
+
+                        <ul className="space-y-2 mb-4">
+                          {exp.description.map((item, itemIndex) => (
+                            <li
+                              key={itemIndex}
+                              className="text-muted-foreground text-sm flex items-start gap-2"
+                            >
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech, techIndex) => (
+                            <Badge
+                              key={techIndex}
+                              variant="secondary"
+                              className="bg-secondary text-secondary-foreground border-border text-xs"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
                         </div>
-                      </div>
-
-                      <ul className="space-y-2 mb-4">
-                        {exp.description.map((item, itemIndex) => (
-                          <li
-                            key={itemIndex}
-                            className="text-muted-foreground text-sm flex items-start gap-2"
-                          >
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, techIndex) => (
-                          <Badge
-                            key={techIndex}
-                            variant="secondary"
-                            className="bg-secondary text-secondary-foreground border-border text-xs"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -818,39 +862,44 @@ export default function Portfolio() {
               {/* Education */}
               <div className="space-y-6 mb-12">
                 {education.map((edu, index) => (
-                  <Card
+                  <motion.div
                     key={index}
-                    className="bg-card border-border hover:border-primary/50 shadow-sm transition-all duration-300"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <CardContent className="p-6">
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-                        <div>
-                          <h4 className="text-lg font-semibold text-foreground mb-1">
-                            {edu.degree}
-                          </h4>
-                          <div className="text-primary font-medium">
-                            {edu.school}
+                    <Card className="bg-card border-border hover:border-primary/50 shadow-sm transition-all duration-300">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+                          <div>
+                            <h4 className="text-lg font-semibold text-foreground mb-1">
+                              {edu.degree}
+                            </h4>
+                            <div className="text-primary font-medium">
+                              {edu.school}
+                            </div>
+                          </div>
+                          <div className="text-sm text-muted-foreground mt-2 sm:mt-0 sm:text-right">
+                            <div className="flex items-center gap-1 mb-1">
+                              <Calendar size={14} />
+                              {edu.period}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MapPin size={14} />
+                              {edu.location}
+                            </div>
                           </div>
                         </div>
-                        <div className="text-sm text-muted-foreground mt-2 sm:mt-0 sm:text-right">
-                          <div className="flex items-center gap-1 mb-1">
-                            <Calendar size={14} />
-                            {edu.period}
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <MapPin size={14} />
-                            {edu.location}
-                          </div>
+                        <p className="text-muted-foreground text-sm mb-2">
+                          {edu.description}
+                        </p>
+                        <div className="text-primary text-sm font-medium">
+                          GPA: {edu.gpa}
                         </div>
-                      </div>
-                      <p className="text-muted-foreground text-sm mb-2">
-                        {edu.description}
-                      </p>
-                      <div className="text-primary text-sm font-medium">
-                        GPA: {edu.gpa}
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 ))}
               </div>
 
@@ -860,28 +909,33 @@ export default function Portfolio() {
               </h4>
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
-                  <Card
+                  <motion.div
                     key={index}
-                    className="bg-card/50 border-border shadow-sm"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h5 className="font-semibold text-foreground text-sm">
-                            {cert.name}
-                          </h5>
-                          <div className="text-primary text-xs">
-                            {cert.issuer}
+                    <Card className="bg-card/50 border-border shadow-sm">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h5 className="font-semibold text-foreground text-sm">
+                              {cert.name}
+                            </h5>
+                            <div className="text-primary text-xs">
+                              {cert.issuer}
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-muted-foreground text-xs">
+                              {cert.date}
+                            </div>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <div className="text-muted-foreground text-xs">
-                            {cert.date}
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -897,10 +951,17 @@ export default function Portfolio() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 lg:py-32 relative">
+      <motion.section
+        id="contact"
+        className="py-20 lg:py-32 relative"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
@@ -1108,7 +1169,7 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <footer className="py-8 border-t border-border bg-background/50">
