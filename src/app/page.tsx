@@ -441,7 +441,7 @@ export default function Portfolio() {
         className="min-h-screen flex items-center justify-center relative px-4 pt-32"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.2 }}
       >
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
@@ -502,7 +502,7 @@ export default function Portfolio() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.2 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -606,7 +606,7 @@ export default function Portfolio() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.2 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -629,9 +629,10 @@ export default function Portfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className="h-full"
                 >
-                  <Card className="bg-card border-border hover:border-primary shadow-sm transition-all duration-500 group hover:scale-105">
+                  <Card className="bg-card border-border hover:border-primary shadow-sm transition-all duration-500 group hover:scale-105 h-full flex flex-col">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <Image
                         src={project.image || "/images/myportfolio.png"}
@@ -657,17 +658,19 @@ export default function Portfolio() {
                       </CardDescription>
                     </CardHeader>
 
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.tech.map((tech, techIndex) => (
-                          <Badge
-                            key={techIndex}
-                            variant="secondary"
-                            className="bg-secondary text-secondary-foreground border-border text-xs"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
+                    <CardContent className="flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {project.tech.map((tech, techIndex) => (
+                            <Badge
+                              key={techIndex}
+                              variant="secondary"
+                              className="bg-secondary text-secondary-foreground border-border text-xs"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
 
                       <div className="flex gap-4">
@@ -701,7 +704,7 @@ export default function Portfolio() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.2 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -722,7 +725,7 @@ export default function Portfolio() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
               >
                 <Card className="bg-card border-border hover:border-primary shadow-sm transition-all duration-300 group">
                   <CardHeader className="text-center pb-4">
@@ -769,7 +772,7 @@ export default function Portfolio() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.2 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -797,7 +800,7 @@ export default function Portfolio() {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
                   >
                     <Card className="bg-card border-border hover:border-primary/50 shadow-sm transition-all duration-300">
                       <CardContent className="p-6">
@@ -867,7 +870,7 @@ export default function Portfolio() {
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
                   >
                     <Card className="bg-card border-border hover:border-primary/50 shadow-sm transition-all duration-300">
                       <CardContent className="p-6">
@@ -914,7 +917,7 @@ export default function Portfolio() {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    transition={{ duration: 0.7, delay: index * 0.1 }}
                   >
                     <Card className="bg-card/50 border-border shadow-sm">
                       <CardContent className="p-4">
@@ -960,7 +963,7 @@ export default function Portfolio() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.2 }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
