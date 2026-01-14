@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -176,6 +176,16 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "$PEPE Landing Page",
+      description:
+        "The most memeable memecoin landing page. Features a vibrant, playful design with interactive elements, instant wallet connection, and a community-driven ecosystem. It's time for Pepe to take reign.",
+      tech: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "Web3.js"],
+      github: "#",
+      demo: "#",
+      image: "/images/pepe-landing-page.png",
+      featured: true,
+    },
+    {
       title: "SolWork Landing Page",
       description:
         "A high-performance, aesthetically driven landing page for a decentralized freelance marketplace on Solana. Features premium UI/UX design with glassmorphism effects, dynamic animations, and seamless Solana wallet integration to showcase a modern, trustless work ecosystem.",
@@ -222,6 +232,32 @@ export default function Portfolio() {
       featured: true,
     },
   ];
+
+  const projectsContainerRef = useRef<HTMLDivElement>(null);
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+
+  const handleProjectScroll = () => {
+    if (projectsContainerRef.current) {
+      const container = projectsContainerRef.current;
+      const scrollPosition = container.scrollLeft;
+      const itemWidth = container.clientWidth / (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1);
+      
+      const index = Math.round(scrollPosition / itemWidth);
+      setActiveProjectIndex(index);
+    }
+  };
+
+  const scrollProjectsTo = (index: number) => {
+     if (projectsContainerRef.current) {
+      const container = projectsContainerRef.current;
+      const itemWidth = container.clientWidth / (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1);
+      container.scrollTo({
+        left: itemWidth * index,
+        behavior: 'smooth'
+      });
+      setActiveProjectIndex(index);
+    }
+  };
 
   const skills = [
     {
@@ -620,19 +656,24 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="relative group/container">
+            <div 
+              ref={projectsContainerRef}
+              onScroll={handleProjectScroll}
+              className="flex overflow-x-auto gap-6 pb-8 no-scrollbar snap-x snap-mandatory scroll-smooth px-4"
+            >
             {projects
               .filter((project) => project.featured)
               .map((project, index) => (
+                <div key={index} className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] snap-start">
                 <motion.div
-                  key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   className="h-full"
                 >
-                  <Card className="bg-card border-border hover:border-primary shadow-sm transition-all duration-500 group hover:scale-105 h-full flex flex-col">
+                  <Card className="bg-card border-border hover:border-primary shadow-sm transition-all duration-500 group hover:scale-[1.02] h-full flex flex-col">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <Image
                         src={project.image || "/images/myportfolio.png"}
@@ -653,7 +694,7 @@ export default function Portfolio() {
                       <CardTitle className="text-foreground group-hover:text-primary transition-colors text-lg sm:text-xl">
                         {project.title}
                       </CardTitle>
-                      <CardDescription className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                      <CardDescription className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3">
                         {project.description}
                       </CardDescription>
                     </CardHeader>
@@ -692,7 +733,25 @@ export default function Portfolio() {
                     </CardContent>
                   </Card>
                 </motion.div>
+                </div>
               ))}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center items-center gap-2 mt-4">
+              {projects.filter(p => p.featured).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollProjectsTo(index)}
+                  className={`transition-all duration-300 rounded-full ${
+                    activeProjectIndex === index 
+                      ? "w-8 h-2 bg-primary" 
+                      : "w-2 h-2 bg-muted-foreground/30 hover:bg-primary/50"
+                  }`}
+                  aria-label={`Go to project ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </motion.section>
