@@ -180,8 +180,8 @@ export default function Portfolio() {
       description:
         "The most memeable memecoin landing page. Features a vibrant, playful design with interactive elements, instant wallet connection, and a community-driven ecosystem. It's time for Pepe to take reign.",
       tech: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "Web3.js"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/Dominion116/pepe",
+      demo: "https://pepe-smoky.vercel.app/",
       image: "/images/pepe-landing-page.png",
       featured: true,
     },
@@ -474,7 +474,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <motion.section
         id="hero"
-        className="min-h-screen flex items-center justify-center relative px-4 pt-32"
+        className="min-h-screen flex items-center justify-center relative px-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
