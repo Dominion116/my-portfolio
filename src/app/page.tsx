@@ -474,7 +474,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <motion.section
         id="hero"
-        className="min-h-screen flex items-center justify-center relative px-4"
+        className="min-h-screen flex items-center justify-center relative px-4 pt-28"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
