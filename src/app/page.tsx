@@ -143,19 +143,6 @@ export default function Portfolio() {
     }
   };
 
-  const handleResumeDownload = () => {
-    // Create a temporary link element
-    const link = document.createElement("a");
-    link.href = "/resume/dominion-resume.pdf"; // Path to your PDF in public folder
-    link.download = "Dominion-Full-Stack-Web3-Developer-Resume.pdf"; // Downloaded filename
-    link.target = "_blank"; // Open in new tab as fallback
-
-    // Trigger download
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -1005,11 +992,16 @@ export default function Portfolio() {
 
           <div className="text-center mt-16">
             <Button
-              onClick={handleResumeDownload}
+              asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
             >
-              <Download className="mr-2" size={20} />
-              Download Full Resume
+              <a 
+                href="/resume/dominion-resume.pdf" 
+                download="Dominion-Full-Stack-Web3-Developer-Resume.pdf"
+              >
+                <Download className="mr-2" size={20} />
+                Download Full Resume
+              </a>
             </Button>
           </div>
         </div>
