@@ -173,6 +173,16 @@ export default function Portfolio() {
       featured: true,
     },
     {
+      title: "$2 Token Landing Page",
+      description:
+        "A commemorative landing page celebrating 2 years of PumpFun. Features a bold, minimalist design highlighting the 'Power of $2', with custom animations, zero tax metrics, and a culture-first approach.",
+      tech: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React"],
+      github: "https://github.com/Dominion116/2",
+      demo: "https://2-pump.vercel.app/",
+      image: "/images/two-dollar.png",
+      featured: true,
+    },
+    {
       title: "SolWork Landing Page",
       description:
         "A high-performance, aesthetically driven landing page for a decentralized freelance marketplace on Solana. Features premium UI/UX design with glassmorphism effects, dynamic animations, and seamless Solana wallet integration to showcase a modern, trustless work ecosystem.",
