@@ -173,13 +173,13 @@ export default function Portfolio() {
       featured: true,
     },
     {
-      title: "$2 Token Landing Page",
+      title: "NovaWeb Landing Page",
       description:
-        "A commemorative landing page celebrating 2 years of PumpFun. Features a bold, minimalist design highlighting the 'Power of $2', with custom animations, zero tax metrics, and a culture-first approach.",
-      tech: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React"],
-      github: "https://github.com/Dominion116/2",
-      demo: "https://2-pump.vercel.app/",
-      image: "/images/two-dollar.png",
+        "Modern, high-performance landing page for a web development agency. Features stunning hero section, service highlights, and call-to-action buttons with smooth animations and professional design patterns.",
+      tech: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "Lucide React"],
+      github: "https://github.com/Dominion116/NovaWeb",
+      demo: "https://nova-web-beta.vercel.app/",
+      image: "/images/novaweb.png",
       featured: true,
     },
     {
@@ -201,16 +201,6 @@ export default function Portfolio() {
       featured: true,
     },
     {
-      title: "My Portfolio Website",
-      description:
-        "Responsive portfolio platform featuring live smart contract integrations, DeFi project showcases, and modern Web3 user experience patterns.",
-      tech: ["React", "Next.js", "Tailwind CSS", "HTML", "Vercel"],
-      github: "https://github.com/Dominion116/my-portfolio",
-      demo: "#",
-      image: "/images/myportfolio.png",
-      featured: true,
-    },
-    {
       title: "Afrimobile Technology",
       description:
         "Blockchain-integrated smartphone platform, features native crypto wallet, decentralized app store, and smart contract-powered device management. Built for Africa&apos;s rapidly expanding mobile-first economy.",
@@ -226,6 +216,16 @@ export default function Portfolio() {
       github: "https://github.com/BernardOnuh/Afrimo-Database",
       demo: "https://www.afrimobil.com/",
       image: "/images/afrimobile.png",
+      featured: true,
+    },
+    {
+      title: "My Portfolio Website",
+      description:
+        "Responsive portfolio platform featuring live smart contract integrations, DeFi project showcases, and modern Web3 user experience patterns.",
+      tech: ["React", "Next.js", "Tailwind CSS", "HTML", "Vercel"],
+      github: "https://github.com/Dominion116/my-portfolio",
+      demo: "#",
+      image: "/images/myportfolio.png",
       featured: true,
     },
   ];
