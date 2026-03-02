@@ -229,6 +229,16 @@ export default function Portfolio() {
       featured: true,
     },
     {
+      title: "PredictStack",
+      description:
+        "Decentralized prediction markets platform on Stacks. Bet on future events with USDCx, transparent and secure by Bitcoin. Create markets, place bets, and earn rewards on the most trusted prediction platform built on Stacks.",
+      tech: ["Next.js", "React", "Stacks", "Bitcoin", "USDCx", "Tailwind CSS"],
+      github: "https://github.com/Dominion116/PredictStack",
+      demo: "https://predict-stack.vercel.app/",
+      image: "/images/predictstack.png",
+      featured: true,
+    },
+    {
       title: "My Portfolio Website",
       description:
         "Responsive portfolio platform featuring live smart contract integrations, DeFi project showcases, and modern Web3 user experience patterns.",
