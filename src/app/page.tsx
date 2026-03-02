@@ -163,6 +163,16 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "PredictStack",
+      description:
+        "Decentralized prediction markets platform on Stacks. Bet on future events with USDCx, transparent and secure by Bitcoin. Create markets, place bets, and earn rewards on the most trusted prediction platform built on Stacks.",
+      tech: ["Next.js", "React", "Stacks Clarity", "Bitcoin", "USDCx", "Tailwind CSS", "Hiro Chainhooks"],
+      github: "https://github.com/Dominion116/PredictStack",
+      demo: "https://predict-stack.vercel.app/",
+      image: "/images/predictstack.png",
+      featured: true,
+    },
+    {
       title: "$PEPE Landing Page",
       description:
         "The most memeable memecoin landing page. Features a vibrant, playful design with interactive elements, instant wallet connection, and a community-driven ecosystem. It's time for Pepe to take reign.",
@@ -216,6 +226,16 @@ export default function Portfolio() {
       github: "https://github.com/BernardOnuh/Afrimo-Database",
       demo: "https://www.afrimobil.com/",
       image: "/images/afrimobile.png",
+      featured: true,
+    },
+    {
+      title: "PredictStack",
+      description:
+        "Decentralized prediction markets platform on Stacks. Bet on future events with USDCx, transparent and secure by Bitcoin. Create markets, place bets, and earn rewards on the most trusted prediction platform built on Stacks.",
+      tech: ["Next.js", "React", "Stacks", "Bitcoin", "USDCx", "Tailwind CSS"],
+      github: "https://github.com/Dominion116/PredictStack",
+      demo: "https://predict-stack.vercel.app/",
+      image: "/images/predictstack.png",
       featured: true,
     },
     {
